@@ -1,0 +1,355 @@
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/RobotoMono/RobotoMono-Regular.woff2') format('woff2'),
+         url('../fonts/RobotoMono/RobotoMono-Regular.woff') format('woff'),
+         url('../fonts/RobotoMono/RobotoMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/RobotoMono/RobotoMono-Bold.woff2') format('woff2'),
+         url('../fonts/RobotoMono/RobotoMono-Bold.woff') format('woff'),
+         url('../fonts/RobotoMono/RobotoMono-Bold.ttf') format('truetype');
+}
+
+/* Common Classes */
+._fwfl {
+    width: 100%;
+    float: left;
+}
+._fl {
+    float: left;
+}
+._lsn {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+._m0 {
+    margin: 0;
+}
+.long-score {
+    width: 16px;
+    float: left;
+    margin-right: 2px;
+    border-bottom: solid 1px;
+    line-height: 15px;
+}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+body {
+    background-color: #efefef;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+}
+main {
+    width: 1020px;
+    margin: 0 auto;
+}
+.wrapper {
+    width: 100%;
+    min-height: 1320px;
+    float: left;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: -1px 1px 2px rgba(0,0,0,0.07);
+    -webkit-box-shadow: -1px 1px 2px rgba(0,0,0,0.07);
+}
+header {
+    text-align: center;
+    padding-top: 70px;
+}
+header>h1 {
+    width: 100%;
+    float: left;
+    margin-bottom: 40px;
+    font-size: 34px;
+}
+header>h1>span {
+    padding: 10px 55px 9px 55px;
+    border: solid 2px #555;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    color: #333;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+header h3 {
+    color: #333;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+header .avatar-mobile {
+    display: none;
+}
+header .avatar {
+    width: 128px;
+    height: 128px;
+    margin: 20px auto;
+    border-radius: 50%;
+    -webkitborder-radius: 50%;
+}
+header .avatar img{
+    width: 100%;
+    height: 100%;
+    float: left;
+    border-radius: 50%;
+}
+.resume-tree {
+    width: 100%;
+    float: left;
+    position: relative;
+    margin-top: 20px;
+}
+.resume-wrapper {
+    width: 100%;
+    float: left;
+}
+.resume-wrapper:before {
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    margin-left: -2px;
+    background: #ccc;
+    content: '';
+}
+.resume-wrapper .left {
+    width: 50%;
+    float: left;
+    padding: 0 30px 0 40px;
+    text-align: right;
+}
+.resume-wrapper .right {
+    width: 50%;
+    float: left;
+    padding: 0 40px 0 30px;
+}
+.resume-wrapper section {
+    width: 100%;
+    float: left;
+    margin-bottom: 50px;
+}
+.resume-wrapper section:last-child {
+    margin-bottom: 0;
+}
+section>.title {
+    width: 100%;
+    float: left;
+    margin: 0 0 30px 0;
+    color: #444;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+section>.content {
+    width: 100%;
+    float: left;
+    color: #555;
+    font-size: 17px;
+    line-height: 27px;
+}
+.time-box {
+    width: 100%;
+    float: left;
+    margin-bottom: 35px;
+}
+.time-box:last-child {
+    margin-bottom: 0;
+}
+.time-box .time-period {
+    width: 100%;
+    float: right;
+    font-size: 15px;
+    color: #666;
+    margin: 0 0 10px 0;
+}
+.time-box .time-title {
+    width: 100%;
+    float: right;
+    font-size: 17px;
+    color: #444;
+    font-weight: 700;
+
+}
+.time-box .time-subtitle {
+    width: 100%;
+    float: right;
+    color: #222;
+    font-size: 15px;
+    padding: 3px 0;
+}
+.time-box .time-desc {
+    width: 100%;
+    float: right;
+    color: #666;
+    font-size: 17px;
+}
+.skill-list li {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+}
+.skill-list li:last-child {
+    margin-bottom: 0;
+}
+.skill-list li span {
+    width: 100%;
+    float: left;
+    margin-bottom: 5px;
+}
+.skill-list li b {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    float: left;
+    margin-bottom: 5px;
+    background-color: #ccc;
+}
+.skill-list li b i {
+    position: absolute;
+    height: 5px;
+    background-color: #888;
+}
+.skill-list li b i.rate-1 {width: 20%;}
+.skill-list li b i.rate-2 {width: 40%;}
+.skill-list li b i.rate-3 {width: 60%;}
+.skill-list li b i.rate-4 {width: 80%;}
+.skill-list li b i.rate-5 {width: 100%;}
+
+.contact-list li {
+    width: 100%;
+    float: left;
+    margin-bottom: 7px;
+}
+.contact-list li:last-child {
+    margin-bottom: 0;
+}
+.contact-list li i {
+    width: 35px;
+}
+.contact-list li a {
+    color: #555;
+}
+
+.about-content {
+    color: #555;
+}
+.social-list {
+    width: 100%;
+    float: left;
+    margin: 20px 0;
+    padding: 0;
+    list-style: none;
+}
+.social-list li {
+    width: 100%;
+    float: left;
+    margin-bottom: 3px;
+}
+.social-list li a{
+    float: left;
+    color: #555;
+    text-decoration: none;
+}
+.social-list li a:hover {
+    color: #f66;
+}
+.social-list li a i{
+    width: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+    body {
+        background-color: #fff;
+    }
+    main {
+        width: 100%;
+        float: left;
+        margin: 0;
+    }
+    .wrapper {
+        min-height: auto;
+        margin: 0;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+    header {
+        padding-top: 40px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        padding: 30px;
+    }
+    .resume-wrapper .left, .resume-wrapper .right {
+        width: 100%;
+        float: left;
+        text-align: left;
+        padding: 0;
+    }
+    .resume-wrapper .right {
+        margin-top: 50px;
+    }
+    header{
+        text-align: left;
+        padding-top: 0;
+        margin-bottom: 20px;
+        border-bottom: solid 1px #ccc;
+    }
+    header>h1 {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    header h3 {
+        font-size: 20px;
+    }
+    .resume-wrapper:before {
+        content: none;
+    }
+    header .avatar {
+        display: none;
+    }
+    header .avatar-mobile {
+        width: 115px;
+        height: 115px;
+        display: block;
+        margin: 0;
+    }
+    header>h1>span {
+        font-size: 24px;
+        letter-spacing: 1px;
+    }
+    header>h1>span {
+        border: none;
+        padding: 0;
+    }
+    header h3 {
+        font-size: 15px;
+        padding-bottom: 10px;
+    }
+    section.education {
+        margin-top: 50px;
+    }
+}
+@media screen and (max-width: 680px) {
+    .wrapper {
+        padding: 20px;
+    }
+}

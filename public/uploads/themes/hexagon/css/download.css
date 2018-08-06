@@ -1,0 +1,20 @@
+body {
+    width: 1020px;
+    min-height: 1415px;
+    background-color: #fff;
+}
+.wrapper {
+    -webkit-box-shadow: none;
+    border: none;
+    margin: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    box-shadow: none;
+    background-color: #fff;
+}
+.exp-skills>.right {
+    width: 600px;
+}
+.exp-skills>.left {
+    width: 400px;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
+        <link rel="stylesheet" href="{{ ASSET }}/css/app.css">
+        <link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+    </head>
+
+    <body>
+        <main>
+            <div class="wrapper">
+                <ul class="_fwfl _lsn rainbow-line">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div class="_fwfl wrapper-inside">
+                    <div class="_fwfl main-container">
+                        <header class="_fwfl">
+                            <div class="personal-logo">
+                                <div class="personal-logo-inside">
+                                    <div class="personal-logo-dotted">
+                                        {{FIRST_NAME_LETTER}}{{LAST_NAME_LETTER}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_fwfl personal-info">
+                                <h1>{{FIRST_NAME}} {{LAST_NAME}}</h1>
+                                <h4>{{EXPECTED_JOB}}</h4>
+                                <ul class="_fwfl _lsn contact-info">
+                                    <li><i class="fa fa-map-marker"></i> {{ CITY }}</li>
+                                    <li><i class="fa fa-envelope-o"></i> {{ EMAIL }}</li>
+                                    <li><i class="fa fa-phone"></i> {{ PHONE_NUMBER }}</li>
+                                </ul>
+                                <div class="_fwfl social-wrap">
+                                    <ul class="_lsn social-list">
+                                        {% foreach(socials) %}
+                                        <li><a href="http://[[ LINK ]]" target="_blank"><i class="fa fa-[[ ICON ]]"></i></a></li>
+                                        {% endforeach %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </header>
+                        <section class="_fwfl content-wrap">
+                            <div class="title">
+                                <div class="_fwfl title-bg">
+                                    <h4>Skills</h4>
+                                </div>
+                            </div>
+                            <div class="_fwfl content-box">
+                                <div class="skill-wrap">
+                                    <ul class="_fwfl _lsn skill-list">
+                                        {% foreach(skills) %}
+                                        <li>
+                                            <span>[[ NAME ]]</span>
+                                            <b><i class="rate-[[ RATES ]]"></i></b>
+                                        </li>
+                                        {% endforeach %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="_fwfl content-wrap">
+                            <div class="title">
+                                <div class="_fwfl title-bg">
+                                    <h4>Experiences</h4>
+                                </div>
+                            </div>
+                            <div class="_fwfl content-box">
+                                <div class="exp-wrap">
+                                    <ul class="_fwfl _lsn history-list">
+                                        {% foreach(experiences) %}
+                                        <li>
+                                            <h4><span class="exp-head">[[POSITION]] <span class="separator">//</span> [[COMPANY_NAME]]</span> <span class="time"><i class="fa fa-calendar"></i> [[TIME_LETTER]]</span></h4>
+                                            <div>[[DESCRIPTION]]</div>
+                                            <div class="exp-border"></div>
+                                        </li>
+                                        {% endforeach %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="_fwfl content-wrap">
+                            <div class="title">
+                                <div class="_fwfl title-bg">
+                                    <h4>Education</h4>
+                                </div>
+                            </div>
+                            <div class="_fwfl content-box">
+                                <div class="exp-wrap">
+                                    <ul class="_fwfl _lsn history-list">
+                                        {% foreach(education) %}
+                                        <li>
+                                            <h4>[[SUBJECT]] <span class="separator">//</span> [[QUALIFICATION]] <span class="time"><i class="fa fa-calendar"></i> [[TIME_LETTER]]</span></h4>
+                                            <div>[[COLLEGE_NAME]]</div>
+                                            <div class="exp-border"></div>
+                                        </li>
+                                        {% endforeach %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="_fwfl content-wrap">
+                            <div class="title">
+                                <div class="_fwfl title-bg">
+                                    <h4>Interest</h4>
+                                </div>
+                            </div>
+                            <div class="_fwfl content-box">
+                                <div class="_fwfl hobbies">
+                                    {{HOBBIES}}
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+    </body>
+
+</html>

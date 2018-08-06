@@ -1,0 +1,293 @@
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/RobotoMono/RobotoMono-Regular.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/RobotoMono/RobotoMono-Bold.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.ttf') format('truetype');
+}
+/* Common Classes */
+._fwfl {
+    width: 100%;
+    float: left;
+}
+._fl {
+    float: left;
+}
+._lsn {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+._m0 {
+    margin: 0;
+}
+.long-score {
+    width: 16px;
+    float: left;
+    margin-right: 2px;
+    border-bottom: solid 1px;
+    line-height: 19px;
+}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+body {
+    background-color: #f5f5f5;
+    font-family: 'Roboto Mono', monospace;
+    color: #000;
+}
+main {
+    width: 1020px;
+    margin: 100px auto;
+}
+.wrapper {
+    width: 100%;
+    float: left;
+    margin-bottom: 50px;
+    background-color: #fff;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -box-shadow: -20px 20px 42px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: -20px 20px 42px rgba(0, 0, 0, 0.3);
+}
+.name-job-wrapper {
+    width: 45%;
+    margin: 0 auto;
+    background-color: #f7ece6;
+    text-align: center;
+}
+.name-job {
+    background-color: #f7ece6;
+}
+.avatar-mb-wrapper {
+    display: none;
+    padding-top: 15px;
+    background-color: #3f3d42;
+}
+.avatar-mb {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+.name-job h1, .name-job h4 {
+    width: 100%;
+    float: left;
+    margin: 0;
+    text-transform: uppercase;
+}
+.name-job h1.name-black {
+    padding: 70px 0 7px;
+    background-color: #3f3d42;
+    color: #fff;
+}
+.name-job h1.name-lightorange {
+    padding: 7px 0 35px;
+    color: #555;
+}
+.name-job h4 {
+    padding: 20px 0;
+    color: #555;
+}
+.name-job span {
+    position: relative;
+    width: 40px;
+    height: 2px;
+    left: 50%;
+    margin-left: -25px;
+    float: left;
+    background-color: #555;
+}
+.main-container {
+    margin-top: 50px;
+}
+.light-box, .white-box {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 25px;
+    color: #333;
+}
+.light-box>div._fwfl {
+    background-color: #f7ece6;
+    padding: 30px;
+}
+.light-box .left, .white-box .left {
+    width: 60%;
+    float: left;
+    padding-right: 20px;
+}
+.light-box .right, .white-box .right {
+    width: 40%;
+    float: left;
+    padding-left: 20px;
+}
+.avatar {
+    width: 210px;
+    height: 210px;
+    float: left;
+    padding: 2px;
+    border: solid 1px #333;
+}
+.content-box {
+    margin-bottom: 50px;
+}
+.content-box:last-child {
+    margin-bottom: 0;
+}
+.content-box .title {
+    min-width: 170px;
+    float: left;
+    padding: 12px 0;
+    margin: 0;
+    border: solid 1px #3f3d42;
+    background-color: #3f3d42;
+    text-align: center;
+    color: #eee;
+    text-transform: uppercase;
+}
+.content-box .title.title-transparent {
+    
+    background-color: #f7ece6;
+    color: #3f3d42;
+}
+.content-box .content {
+    margin-top: 20px;
+}
+.history-list li {
+    width: 100%;
+    float: left;
+    margin-bottom: 25px;
+}
+.history-list li:last-child {
+    margin-bottom: 0;
+}
+.history-list li h4 {
+    width: 100%;
+    float: left;
+    margin: 0;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: bold;
+    color: #444;
+}
+.history-list li span {
+    width: 100%;
+    float: left;
+    margin-top: 5px;
+    font-size: 15px;
+    color: #555;
+}
+.history-list li span i{
+    font-size: 14px;
+}
+.skill-list li {
+    width: 100%;
+    float: left;
+    margin-bottom: 30px;
+}
+.skill-list li span,
+.skill-list li b {
+    width: 100%;
+    float: left;
+}
+.skill-list li b {
+    position: relative;
+    height: 5px;
+    margin-top: 6px;
+    background-color: #ddd;
+}
+.skill-list li b i {
+    position: absolute;
+    height: 5px;
+    background-color: #555;
+}
+
+.skill-list li b i.rate-1 {width: 20%;}
+.skill-list li b i.rate-2 {width: 40%;}
+.skill-list li b i.rate-3 {width: 60%;}
+.skill-list li b i.rate-4 {width: 80%;}
+.skill-list li b i.rate-5 {width: 100%;}
+
+.white-box-content {
+    margin: 50px 0;
+}
+
+@media screen and (max-width: 1024px) {
+    main {
+        width: 100%;
+        float: left;
+        margin: 0;
+    }
+    .wrapper {
+        margin-bottom: 0;
+    }
+}
+@media screen and (max-width: 780px) {
+    .name-job-wrapper {
+        width: 60%;
+    }
+    .light-box, .white-box {
+        width: 100%;
+    }
+    .white-box-content {
+        padding: 0 30px;
+    }
+    
+}
+@media screen and (max-width: 680px) {
+    .name-job-wrapper {
+        width: 70%;
+    }
+    .name-job h1.name-black {
+        margin-top: -1px;
+        padding: 30px 0 7px;
+    }
+    .avatar-mb-wrapper {
+        display: block;
+    }
+    .name-job h1:first-child {
+        padding: 50px 0 7px;
+    }
+    .light-box .left, 
+    .white-box .left,
+    .light-box .right, 
+    .white-box .right{
+        width: 100%;
+        padding: 0;
+    }
+    .light-box .right, 
+    .white-box .right{
+        margin-top: 50px;
+    }
+    .light-box>div._fwfl:first-child>.right {
+        display: none;
+    }
+    
+}
+@media screen and (max-width: 480px) { 
+    .name-job-wrapper {
+        width: 100%;
+    }
+    .light-box>div._fwfl {
+        padding: 15px;
+    }
+    .white-box-content {
+        padding: 0 15px;
+    }
+}
+@media screen and (max-width: 320px) {
+    
+}

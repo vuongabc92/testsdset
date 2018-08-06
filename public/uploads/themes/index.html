@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
+        <link rel="stylesheet" href="{{ ASSET }}/css/app.css">
+        <link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+        <style>
+            body {
+                background-image: url('{{ ASSET }}/images/bg.png');
+            }
+        </style>
+    </head>
+
+    <body>
+        <main>
+            <div class="wrapper">
+                <header class="_fwfl">
+                    <div class="name-job-wrapper">
+                        <div class="_fwfl name-job">
+                            <div class="_fwfl avatar-mb-wrapper">
+                                <img class="avatar-mb" src="{{AVATAR_256}}" />
+                            </div>
+                            <h1 class="name-black">{{ FIRST_NAME }}</h1>
+                            <h1 class="name-lightorange">{{ LAST_NAME }}</h1>
+                            <span></span>
+                            <h4>{{ EXPECTED_JOB }}</h4>
+                        </div>
+                    </div>
+                </header>
+                <div class="_fwfl main-container">
+                    <div class="light-box">
+                        <div class="_fwfl">
+                            <div class="left">
+                                <section class="_fwfl content-box">
+                                    <h4 class="title title-transparent">Profile</h4>
+                                    <div class="_fwfl content">
+                                        {{ABOUT_ME}}
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="right">
+                                <img class="avatar" src="{{AVATAR_256}}" />
+                            </div>
+                        </div>
+                        <div class="_fwfl">
+                            <div class="left">
+                                <section class="_fwfl content-box">
+                                    <h4 class="title">Education</h4>
+                                    <div class="_fwfl content">
+                                        <ul class="_fwfl _lsn history-list">
+                                            {% foreach(experiences) %}
+                                            <li>
+                                                <h4>[[COMPANY_NAME]]</h4>
+                                                <span>
+                                                    <b><i class="fa fa-map-marker"></i> [[POSITION]]</b>&nbsp;&nbsp;
+                                                    <i><i class="fa fa-calendar"></i> [[TIME_LETTER]]</i>
+                                                </span>
+                                                <div>[[DESCRIPTION]]</div>
+                                            </li>
+                                            {% endforeach %}
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="right">
+                                <section class="_fwfl content-box">
+                                    <h4 class="title">Education</h4>
+                                    <div class="_fwfl content">
+                                        <ul class="_fwfl _lsn skill-list">
+                                            {% foreach(skills) %}
+                                            <li>
+                                                <span>[[NAME]]</span>
+                                                <b><i class="rate-[[RATES]]"></i></b>
+                                            </li>
+                                            {% endforeach %}
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="white-box">
+                        <div class="_fwfl white-box-content">
+                            <div class="left">
+                                <section class="_fwfl content-box">
+                                    <h4 class="title">Education</h4>
+                                    <div class="_fwfl content">
+                                        <ul class="_fwfl _lsn history-list">
+                                            {% foreach(education) %}
+                                            <li>
+                                                <h4>[[COLLEGE_NAME]]</h4>
+                                                <span>
+                                                    <b><i class="fa fa-map-marker"></i> [[SUBJECT]]</b>&nbsp;&nbsp;
+                                                    <i><i class="fa fa-calendar"></i> [[TIME_LETTER]]</i>
+                                                </span>
+                                                <div>[[QUALIFICATION]]</div>
+                                            </li>
+                                            {% endforeach %}
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="right">
+                                <section class="_fwfl content-box">
+                                    <h4 class="title">INTEREST</h4>
+                                    <div class="_fwfl content">
+                                        {{HOBBIES}}
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

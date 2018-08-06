@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
+<link rel="stylesheet" href="{{ ASSET }}/css/app.css">
+<link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+<link rel="stylesheet" href="{{ ASSET }}/css/download.css">
+</head>
+
+{% config %}
+[[ pdf-margin-bottom-page-1:8 ]]
+[[ pdf-margin-top-page-2:8 ]]
+[[ pdf-margin-top-page-3:8 ]]
+{% end_config %}
+
+<body>
+    <main>
+        <div class="wrapper" id="wrapper">
+            <header>
+                <div class="avatar avatar-mobile"><image src="{{ AVATAR_256 }}" /></div>
+                <h1><span>{{ FIRST_NAME }} {{ LAST_NAME }}</span></h1>
+                <h3>{{ EXPECTED_JOB }}</h3>
+                <div class="avatar"><image src="{{ AVATAR_256 }}" /></div>
+            </header>
+
+            <div class="resume-tree">
+                <div class="resume-wrapper">
+                    <div class="left">
+                        <section>
+                            <h3 class="title">Experiences</h3>
+                            <div class="content">
+                                {% foreach(experiences) %}
+                                <div class="time-box">
+                                    <span class="time-period">[[ TIME_LETTER ]]</span>
+                                    <span class="time-title">[[ COMPANY_NAME ]]</span>
+                                    <i class="time-subtitle">[[ POSITION ]]</i>
+                                    <span class="time-desc">[[ DESCRIPTION ]]</span>
+                                </div>
+                                {% endforeach %}
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="title">About me</h3>
+                            <div class="content">
+                                {{ ABOUT_ME }}
+                            </div>
+                        </section>
+                    </div>
+                    <div class="right">
+                        <section>
+                            <h3 class="title">Skill</h3>
+                            <div class="content">
+                                <ul class="_fwfl _lsn skill-list">
+                                    {% foreach(skills) %}
+                                    <li>
+                                        <span>[[ NAME ]]</span>
+                                        <b><i class="rate-[[ RATES ]]"></i></b>
+                                    </li>
+                                    {% endforeach %}
+                                </ul>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="title">Education</h3>
+                            <div class="content">
+                                {% foreach(education) %}
+                                <div class="time-box">
+                                    <span class="time-period">[[ TIME_LETTER ]]</span>
+                                    <span class="time-title">[[ COLLEGE_NAME ]]</span>
+                                    <i class="time-subtitle">[[ SUBJECT ]] - [[ QUALIFICATION ]]</i>
+                                </div>
+                                {% endforeach %}
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="title">Contact me</h3>
+                            <div class="content">
+                                <ul class="_fwfl _lsn contact-list">
+                                    <li><i class="fa fa-calendar"></i>{{ BIRTHDAY }}</li>
+                                    <li><i class="fa fa-map-marker"></i>{{ STREET }}, {{ CITY }}</li>
+                                    <li><i class="fa fa-phone"></i>{{ PHONE_NUMBER }}</li>
+                                    <li><i class="fa fa-envelope"></i><a href="mailto:{{ EMAIL }}" >{{ EMAIL }}</a></li>
+                                    <li><i class="fa fa-link"></i><a href="{{ WEBSITE }}" target="_blank">{{ WEBSITE }}</a></li>
+                                    {% foreach(socials) %}
+                                    <li><a href="http://[[ LINK ]]" target="_blank"><i class="fa fa-[[ ICON ]]"></i>[[ LINK ]]</a></li>
+                                    {% endforeach %}
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

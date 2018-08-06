@@ -1,0 +1,388 @@
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/RobotoMono/RobotoMono-Regular.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/RobotoMono/RobotoMono-Bold.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Rozha One';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/RozhaOne/RozhaOne-Regular.woff2') format('woff2'),
+    url('../fonts/RozhaOne/RozhaOne-Regular.woff') format('woff'),
+    url('../fonts/RozhaOne/RozhaOne-Regular.ttf') format('truetype');
+}
+/* Common Classes */
+._fwfl {
+    width: 100%;
+    float: left;
+}
+._fl {
+    float: left;
+}
+._lsn {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+._m0 {
+    margin: 0;
+}
+.long-score {
+    width: 16px;
+    float: left;
+    margin-right: 2px;
+    border-bottom: solid 1px;
+    line-height: 15px;
+}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+body {
+    background-color: #efefef;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    color: #333;
+}
+main {
+    width: 1020px;
+    margin: 100px auto;
+}
+.wrapper {
+    width: 100%;
+    float: left;
+    margin-bottom: 50px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #fff;
+}
+header {
+    padding: 0 30px 0 13%;
+}
+header .logo {
+    width: 90px;
+    height: 160px;
+    float: left;
+    padding: 80px 15px 0;
+    background-color: #ddba21;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+}
+header .logo-inside {
+    position: relative;
+}
+.logo-inside>span {
+    width: 100%;
+    float: left;
+}
+.logo-inside>span.lnl {
+    text-align: right;
+    margin-top: 14px;
+}
+.logo-inside>i {
+    position: absolute;
+    width: 118%;
+    height: 2px;
+    background-color: #333;
+    left: -5px;
+    top: 31px;
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+header .name-job {
+    float: left;
+    margin-left: 50px;
+    margin-top: 60px;
+}
+header .name-job h1 {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 61px;
+    letter-spacing: 2px;
+}
+header .name-job h1>span {
+    font-weight: 700;
+}
+header .name-job h3 {
+    margin-top: 0;
+    text-transform: uppercase;
+    font-size: 19px;
+}
+div.body {
+    margin-top: 100px;
+}
+.body>.left {
+    width: 35%;
+    float: left;
+    background-color: #f9f9f9;
+}
+.body>.left .avatar {
+    position: relative;
+    text-align: center;
+}
+.left .avatar>img {
+    margin-top: -40px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+.left .avatar>i {
+    position: absolute;
+    right: 20px;
+    top: -70px;
+    font-size: 150px;
+    color: #ddba21;
+    font-family: 'Rozha One', serif;
+}
+.left-content {
+    padding: 30px 10px 30px 30px
+}
+section.card {
+    margin-bottom: 50px;
+}
+section.card-mb {
+    display: none;
+}
+section.card:last-child {
+    margin-bottom: 0;
+}
+section.card>h3 {
+    position: relative;
+    margin: 0;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+section.card>h3::before {
+    position: absolute;
+    width: 70px;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: #333;;
+    content: "";
+}
+section.card>div {
+    margin-top: 20px;
+}
+.contact>li {
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+}
+.contact>li:last-child {
+    margin-bottom: 0;
+}
+.contact>li>h5 {
+    width: 100%;
+    float: left;
+    margin: 0 0 5px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.contact>li>span {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+}
+.body>.right {
+    width: 65%;
+    float: left;
+    padding: 0 30px 0 30px;
+}
+.time-line>li,
+.time-line>li h4,
+.time-line>li i,
+.time-line>li span,
+.time-line>li div {
+    width: 100%;
+    float: left;
+}
+.time-line>li {
+    margin-bottom: 30px;
+}
+.time-line>li:last-child {
+    margin-bottom: 0;
+}
+.time-line>li>.left {
+    width: 35%;
+    float: left;
+}
+.time-line>li>.right {
+    width: 65%;
+    float: left;
+}
+.time-line>li h4 {
+    margin: 0 0 10px;
+    text-transform: uppercase;
+}
+.time-line>li>.right>i{
+    display: none;
+}
+.time-line>li i {
+    margin-bottom: 5px;
+    color: #555;
+}
+.time-line>li span {
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.skills>li {
+    width: 50%;
+    float: left;
+    margin-bottom: 20px;
+}
+.skills>li:nth-child(2n) {
+    padding-left: 15px;
+}
+.skills>li:nth-child(2n + 1) {
+    padding-right: 15px;
+}
+.skills>li>h4,
+.skills>li>b {
+    width: 100%;
+    float: left;
+}
+.skills>li>h4 {
+    margin: 0;
+    font-size: 16px;
+}
+.skills li b {
+    height: 7px;
+    margin-top: 5px;
+    border: solid 1px #888;
+}
+.skills b i {
+    float: left;
+    height: 5px;
+    background-color: #aaa;
+}
+.skills b i.rate-1 {width: 20%;}
+.skills b i.rate-2 {width: 40%;}
+.skills b i.rate-3 {width: 60%;}
+.skills b i.rate-4 {width: 80%;}
+.skills b i.rate-5 {width: 100%;}
+@media screen and (max-width: 1024px) {
+    main {
+        width: 100%;
+        float: left;
+    }
+    .wrapper {
+        margin: 0;
+    }
+    header {
+        padding: 0 30px 0 13.1%;
+    }
+}
+@media screen and (max-width: 768px) {
+    header {
+        padding: 0 30px 0 14.3%;
+    }
+    header .logo {
+        height: 150px;
+        padding: 70px 15px 0;
+    }
+    header .name-job {
+        margin-left: 30px;
+        margin-top: 65px;
+    }
+    header .name-job h1 {
+        font-size: 54px;
+    }
+    .body>.left {
+        width: 40%;
+    }
+    .body>.right {
+        width: 60%;
+        padding: 0 20px 0 30px;
+    }
+    .left .avatar>i {
+        right: 18px;
+        top: -56px;
+        font-size: 120px;
+    }
+    .time-line>li>.left {
+        display: none;
+    }
+    .time-line>li>.right {
+        width: 100%;
+    }
+    .time-line>li>.right>i {
+        display: block;
+    }
+    .left-content {
+        padding: 30px 20px;
+    }
+}
+@media screen and (max-width: 680px) {
+    header {
+        padding: 0 30px 0 15px;
+    }
+    header .name-job {
+        margin-left: 30px;
+    }
+    .body>.left,
+    .body>.right {
+        width: 100%;
+    }
+    .body>.right {
+        padding: 30px 15px 30px 15px;
+    }
+    .left-content {
+        padding: 30px 15px 0;
+    }
+    .left .avatar>i {
+        right: 25px;
+    }
+    section.card-dek {
+        display: none;
+    }
+    section.card-mb {
+        display: block;
+    }
+}
+@media screen and (max-width: 480px) {
+    header .logo {
+        height: 130px;
+        width: 70px;
+        padding: 60px 10px 0;
+    }
+    .logo-inside>span.lnl {
+        margin-top: 10px;
+    }
+    header .name-job {
+        margin-left: 20px;
+        margin-top: 60px;
+    }
+    header .name-job h1 {
+        font-size: 32px;
+    }
+    header .name-job h3 {
+        margin-top: 2px;
+        font-size: 16px;
+    }
+    .skills>li {
+        width: 100%;
+        padding: 0 !important;
+    }
+    .skills>li:nth-last-child(2) {
+        margin-bottom: 20px;
+    }
+}

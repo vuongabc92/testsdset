@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
+    <link rel="stylesheet" href="{{ ASSET }}/css/app.css">
+    <link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+    <link rel="stylesheet" href="{{ ASSET }}/css/download.css">
+    <style>
+        header {
+            background-image: url('{{ COVER_1200 }}');
+        }
+    </style>
+</head>
+{% config %}
+[[ pdf-margin-bottom:2 ]]
+{% end_config %}
+<body>
+<main>
+    <div class="wrapper">
+        <header class="_fwfl">
+            <div class="constraint"></div>
+            <div class="left">
+                <div class="_fwfl name">
+                    <h1>{{ FIRST_NAME }}</h1>
+                    <h1>{{ LAST_NAME }}</h1>
+                </div>
+                <h4>{{ EXPECTED_JOB }}</h4>
+            </div>
+            <div class="right">
+                <ul class="_fwfl _lsn contact-list">
+                    <li><i class="fa fa-envelope"></i> {{ EMAIL }}</li>
+                    <li><i class="fa fa-phone"></i> {{ PHONE_NUMBER }}</li>
+                    <li><i class="fa fa-map-marker"></i> {{ STREET }}, {{ CITY }}</li>
+                    <li><i class="fa fa-calendar"></i> {{ BIRTHDAY }}</li>
+                </ul>
+            </div>
+        </header>
+        <div class="_fwfl body">
+            <section class="_fwfl biography">
+                <h3>Biography</h3>
+                <div class="_fwfl bio-content">
+                    <div class="left">{{ ABOUT_ME }}</div>
+                    <div class="right">
+                        <ul class="_fwfl _lsn social-list">
+                            {% foreach(socials) %}
+                            <li><a href="http://[[ LINK ]]" target="_blank"><i class="fa fa-[[ ICON ]]"></i>[[ LINK ]]</a></li>
+                            {% endforeach %}
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <div class="_fwfl content-two-columns">
+                <div class="left">
+                    <section class="_fwfl content">
+                        <h3>Experience</h3>
+                        <div>
+                            <ul class="_fwfl _lsn time-line">
+                                {% foreach(experiences) %}
+                                <li>
+                                    <b></b>
+                                    <h4>[[POSITION]]</h4>
+                                    <i>[[TIME_LETTER]]</i>
+                                    <span>[[COMPANY_NAME]] | [[LINK_TEXT]]</span>
+                                    <div>[[DESCRIPTION]]</div>
+                                </li>
+                                {% endforeach %}
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+                <div class="right">
+                    <section class="_fwfl content eduction">
+                        <h3>Education</h3>
+                        <div>
+                            <ul class="_fwfl _lsn time-line">
+                                {% foreach(education) %}
+                                <li>
+                                    <b></b>
+                                    <h4>[[TIME_LETTER]]</h4>
+                                    <i>[[SUBJECT]]</i>
+                                    <span>[[QUALIFICATION]]</span>
+                                    <div>[[COLLEGE_NAME]]</div>
+                                </li>
+                                {% endforeach %}
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="_fwfl content">
+                        <h3>Skills</h3>
+                        <div>
+                            <ul class="_fwfl _lsn skill-list">
+                                {% foreach(skills) %}
+                                <li>
+                                    <h4>[[NAME]]</h4>
+                                    <b><i class="rate-[[RATES]]"></i></b>
+                                </li>
+                                {% endforeach %}
+
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <span class="alone-border"></span>
+
+            <div class="_fwfl content-two-columns">
+                <div class="left">
+                    <section class="_fwfl content">
+                        <h3>Interest</h3>
+                        <div>
+                            {{HOBBIES}}
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+
+</html>

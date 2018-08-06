@@ -1,0 +1,375 @@
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/RobotoMono/RobotoMono-Regular.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/RobotoMono/RobotoMono-Bold.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.ttf') format('truetype');
+}
+
+/* Common Classes */
+._fwfl {
+    width: 100%;
+    float: left;
+}
+._fl {
+    float: left;
+}
+._lsn {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+._m0 {
+    margin: 0;
+}
+.long-score {
+    width: 16px;
+    float: left;
+    margin-right: 2px;
+    border-bottom: solid 1px;
+    line-height: 15px;
+}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+body {
+    background-color: #efefef;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+}
+main {
+    width: 1020px;
+    margin: 0 auto;
+}
+.wrapper {
+    width: 100%;
+    float: left;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    background-color: #fff;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+header {
+    position: relative;
+    height: 350px;
+    background-size: cover;
+    background-position: center center;
+}
+header .constraint {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+header .left {
+    width: 50%;
+    float: left;
+    padding-left: 80px;
+    position: relative;
+}
+header .left .name {
+    margin-top: 109px;
+}
+header .left h1 {
+    width: 100%;
+    float: left;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 60px;
+    color: #fff;
+}
+header .left h4 {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+header .right {
+    width: 50%;
+    float: left;
+    padding-left: 40px;
+    position: relative;
+}
+.contact-list {
+    margin-top: 120px;
+    font-size: 16px;
+}
+.contact-list li {
+    width: 100%;
+    float: left;
+    margin-bottom: 7px;
+    color: #fff;
+}
+.contact-list li:last-child {
+    margin-bottom: 0;
+}
+.contact-list li i {
+    width: 15px;
+    font-size: 14px;
+}
+div.body {
+    padding: 30px 80px;
+}
+.biography {
+    border-bottom: solid 2px #ddd;
+    margin-bottom: 50px;
+}
+.biography h3 {
+    width: 100%;
+    float: left;
+    margin: 0 0 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.bio-content .left {
+    width: 65%;
+    float: left;
+    padding-bottom: 50px;
+}
+.bio-content .right {
+    width: 35%;
+    float: left;
+    padding-left: 20px;
+}
+.social-list li {
+    width: 100%;
+    float: left;
+    margin-bottom: 5px;
+}
+.social-list li a {
+    color: #555;
+}
+.social-list li i {
+    width: 22px;
+}
+.eduction {
+    margin-bottom: 50px;
+}
+.content-two-columns .left,
+.content-two-columns .right {
+    width: 50%;
+    float: left;
+}
+.content-two-columns .left {
+    padding-right: 20px;
+}
+.content-two-columns .right {
+    padding-left: 20px;
+}
+.content>h3 {
+    width: 100%;
+    float: left;
+    margin: 0 0 30px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #555;
+    text-transform: uppercase;
+}
+.content>div {
+    width: 100%;
+    float: left;
+}
+.time-line {
+    position: relative;
+}
+.time-line:before {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    top: 2px;
+    left: 0;
+    background-color: #777;
+    content: "";
+}
+.time-line li {
+    position: relative;
+    width: 100%;
+    float: left;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+.time-line li:last-child {
+    margin-bottom: 0;
+}
+.time-line li>b {
+    position: absolute;
+    left: -6px;
+    top: 2px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: #777;
+    border: solid 2px #fff;
+}
+.time-line li>h4,
+.time-line li>i,
+.time-line li>span,
+.time-line li>div {
+    width: 100%;
+    float: left;
+}
+.time-line li>h4 {
+    margin: 0 0 7px;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+.time-line li>i {
+    margin-bottom: 5px;
+}
+.time-line li>span {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #555;
+}
+.skill-list li,
+.skill-list li h4,
+.skill-list li b {
+    width: 100%;
+    float: left;
+}
+.skill-list li {
+    margin-bottom: 20px;
+}
+.skill-list li:last-child {
+    margin-bottom: 0;
+}
+.skill-list li h4 {
+    color: #333;
+    margin: 0 0 7px;
+}
+.skill-list li b {
+    position: relative;
+    height: 7px;
+    border: solid 1px #666;
+}
+.skill-list b i {
+    position: absolute;
+    height: 5px;
+    background-color: #999;
+}
+.skill-list b i.rate-1 {width: 20%;}
+.skill-list b i.rate-2 {width: 40%;}
+.skill-list b i.rate-3 {width: 60%;}
+.skill-list b i.rate-4 {width: 80%;}
+.skill-list b i.rate-5 {width: 100%;}
+.education {
+    margin-top: 50px;
+}
+.alone-border {
+    width: 100%;
+    height: 2px;
+    float: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: #ddd;
+}
+
+@media screen and (max-width: 1024px) {
+    main {
+        width: 100%;
+        float: left;
+    }
+    .wrapper {
+        margin: 0;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header .left,
+    header .right {
+        padding-left: 30px;
+    }
+    div.body {
+        padding: 30px;
+    }
+    .bio-content .left {
+        width: 55%;
+        float: left;
+    }
+    .bio-content .right {
+        width: 45%;
+        float: left;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    header .left,
+    header .right {
+        width: 100%;
+        float: left;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    header .left .name {
+        margin-top: 50px;
+    }
+    header .left h1 {
+        font-size: 54px;
+    }
+    header .left h4 {
+        font-size: 14px;
+    }
+    .contact-list {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    div.body {
+        padding: 30px 15px;
+    }
+    .biography {
+        margin-bottom: 30px;
+    }
+    .bio-content .left,
+    .bio-content .right {
+        width: 100%;
+        float: left;
+        padding: 0;
+    }
+    .bio-content .left {
+        margin-bottom: 30px;
+    }
+    .bio-content .right {
+        padding-bottom: 30px;
+    }
+    .content-two-columns .left, 
+    .content-two-columns .right {
+        width: 100%;
+        float: left;
+        padding: 0;
+    }
+    .content-two-columns .right {
+        margin-top: 30px;
+        border-top: solid 2px #ddd;
+        padding-top: 30px;
+    }
+    .content>h3 {
+        margin: 0 0 20px;
+    }
+    .alone-border {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .eduction {
+        border-bottom: solid 2px #ddd;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+    }
+}

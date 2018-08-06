@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
+        <link rel="stylesheet" href="{{ ASSET }}/css/app.css">
+        <link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+    </head>
+
+    <body>
+        <main>
+            <div class="wrapper" id="pdfhtmlcontents">
+                <header class="_fwfl">
+                    <div class="_fwfl hello">
+                        <h1>Hello.</h1>
+                    </div>
+                    <div class="_fwfl intro">
+                        <h2 class="_fwfl">
+                            <span class="_fwfl">My name is {{FIRST_NAME}} {{LAST_NAME}}</span>
+                            <span class="_fwfl">and this is <b>my resume</b></span>
+                            <span class="my-story">my story</span>
+                        </h2>
+                    </div>
+                    <div class="_fwfl contact">
+                        <ul class="_fwfl _lsn">
+                            <li><b>Birthday:</b><span>{{BIRTHDAY}}</span></li>
+                            <li><b>Tel:</b><span>{{PHONE_NUMBER}}</span></li>
+                            <li><b>Email:</b><span>{{EMAIL}}</span></li>
+                            <li><b>Address:</b><span>{{ STREET }}, {{ CITY }}</span></li>
+                        </ul>
+                    </div>
+                </header>
+                <div class="_fwfl body">
+                    <div class="_fwfl content-container">
+                        <h2 class="_fwfl title">
+                            <span class="number">01.</span>
+                            <span class="text">Experience</span>
+                        </h2>
+                        <div class="_fwfl content">
+                            {% foreach(experiences) %}
+                            <div class="_fwfl history-row">
+                                <div class="history-left">[[TIME]]</div>
+                                <div class="history-right">
+                                    <b class="_fwfl history-title">[[COMPANY_NAME]] / <span>[[POSITION]]</span></b>
+                                    <span class="_fwfl history-desc">[[DESCRIPTION]]</span>
+                                </div>
+                            </div>
+                            {% endforeach %}
+                        </div>
+                    </div>
+                    <div class="_fwfl content-container">
+                        <h2 class="_fwfl title">
+                            <span class="number">02.</span>
+                            <span class="text">Education</span>
+                        </h2>
+                        <div class="_fwfl content">
+                            {% foreach(education) %}
+                            <div class="_fwfl history-row">
+                                <div class="history-left">[[TIME]]</div>
+                                <div class="history-right">
+                                    <b class="_fwfl history-title">[[ COLLEGE_NAME ]]</b>
+                                    <span class="_fwfl history-desc">[[ SUBJECT ]] - [[ QUALIFICATION ]]</span>
+                                </div>
+                            </div>
+                            {% endforeach %}
+                        </div>
+                    </div>
+                    <div class="_fwfl content-container">
+                        <h2 class="_fwfl title">
+                            <span class="number">03.</span>
+                            <span class="text">Skill</span>
+                        </h2>
+                        <div class="_fwfl content">
+                            <ul class="_fwfl _lsn skills">
+                                {% foreach(skills) %}
+                                <li>
+                                    <div class="skill-rate">
+                                        <span><b class="rate-[[ RATES ]]"></b></span>
+                                    </div>
+                                    <div class="skill-name">[[ NAME ]]</div>
+                                </li>
+                                {% endforeach %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="_fwfl content-container">
+                        <h2 class="_fwfl title">
+                            <span class="number">04.</span>
+                            <span class="text">Interest</span>
+                        </h2>
+                        <div class="_fwfl content">
+                            <h4 class="hobbies _m0">{{HOBBIES}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+
+</html>

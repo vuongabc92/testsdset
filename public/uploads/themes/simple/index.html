@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
+        <link rel="stylesheet" href="{{ ASSET }}/css/app.css">
+        <link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+    </head>
+
+    <body>
+        <main>
+            <div class="wrapper" id="pdfhtmlcontents">
+                <div class="left">
+                    <section class="header">
+                        <div class="avatar">
+                            <img src="{{ AVATAR_128 }}" />
+                        </div>
+                        <div class="name-job-address">
+                            <h1>{{ FIRST_NAME }} {{ LAST_NAME }}</h1>
+                            <h3>{{ EXPECTED_JOB }}</h3>
+                            <p><i class="fa fa-map-marker"></i> {{ STREET }}, {{ CITY }}</p>
+                        </div>
+                    </section>
+                    <section class="content-row">
+                        <h2 class="title">Profile</h2>
+                        <div class="content">{{ ABOUT_ME }}</div>
+                    </section>
+                    <section class="content-row">
+                        <h2 class="title">Experience</h2>
+                        <div class="content border-left">
+                            {% foreach(experiences) %}
+                                <div class="timeline-container">
+                                    <h3 class="time-title">[[ POSITION ]] <span class="company-name">@[[ COMPANY_NAME ]]</span></h3>
+                                    <span class="time-point">[[ TIME_LETTER ]]</span>
+                                    <p class="time-content">[[ DESCRIPTION ]]</p>
+                                </div>
+                            {% endforeach %}
+                        </div>
+                    </section>
+                    <section class="content-row">
+                        <h2 class="title">Education</h2>
+                        <div class="content border-left">
+                            {% foreach(education) %}
+                                <div class="timeline-container">
+                                    <h3 class="time-title">[[ COLLEGE_NAME ]]</h3>
+                                    <span class="time-point">[[ TIME_LETTER ]]</span>
+                                    <p class="time-content">[[ SUBJECT ]] - [[ QUALIFICATION ]]</p>
+                                </div>
+                            {% endforeach %}
+                            
+                        </div>
+                    </section>
+                </div>
+                <div class="right">
+                    <section class="content-row">
+                        <h2 class="title">Skills</h2>
+                        <div class="content">
+                            <ul class="_fwfl _lsn skill-list">
+                                {% foreach(skills) %}
+                                <li>
+                                    <h4>[[ NAME ]]</h4>
+                                    <span><b class="rate-[[ RATES ]]"></b></span>
+                                </li>
+                                {% endforeach %}
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="content-row">
+                        <h2 class="title">Details</h2>
+                        <div class="content">
+                            <ul class="details">
+                                <li><i class="fa fa-calendar"></i><span>{{ BIRTHDAY }}</span></li>
+                                <li><i class="fa fa-envelope"></i><a href="mailto:{{ EMAIL }}">{{ EMAIL }}</a></li>
+                                <li><i class="fa fa-phone"></i><span>{{ PHONE_NUMBER }}</span></li>
+                                <li><i class="fa fa-link"></i><a href="{{ WEBSITE }}">{{ WEBSITE }}</a></li>
+                                {% foreach(socials) %}
+                                    <li><i class="fa fa-[[ ICON ]]"></i> <a href="http://[[ LINK ]]" target="_blank">[[ LINK ]]</a></li>
+                                {% endforeach %}
+                            </ul>
+                        </div>
+                    </section>
+                    
+                    <section class="content-row">
+                        <h2 class="title">Interests</h2>
+                        <div class="content">
+                            {{ HOBBIES }}
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
+    <link rel="stylesheet" href="{{ ASSET }}/css/app.css">
+    <link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+    <link rel="stylesheet" href="{{ ASSET }}/css/download.css">
+</head>
+<body>
+    <main>
+        <div class="wrapper">
+            <header class="_fwfl">
+                <div class="_fwfl header-inside">
+                    <div class="expected-job">
+                        <span>{{EXPECTED_JOB}}</span>
+                    </div>
+                    <h1>{{FULL_NAME}}</h1>
+                </div>
+            </header>
+            <section class="_fwfl profile">
+                <div class="_fwfl profile-inside">
+                    <div class="hello">
+                        <h2>Hello!</h2>
+                        <div>{{ABOUT_ME}}</div>
+                    </div>
+                    <div class="contact">
+                        <div class="_fwfl contact-inside">
+                            <div class="_fwfl contact-title">
+                                <span>Contact</span>
+                            </div>
+                            <div class="_fwfl">
+                                <ul class="_fwfl _lsn">
+                                    <li><i class="fa fa-home"></i> {{STREET}}, {{CITY}}</li>
+                                    <li><i class="fa fa-envelope"></i> {{EMAIL}}</li>
+                                    <li><i class="fa fa-phone"></i> {{PHONE_NUMBER}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="avatar">
+                        <div class="_fwfl avatar-inside">
+                            <img src="{{AVATAR_128}}" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="_fwfl exp-skills">
+                <div class="left" id="left">
+                    <div class="_fwfl left-inside" id="left-inside">
+                        <h3 class="_fwfl">Skills</h3>
+                        <div class="_fwfl">
+                            <ul class="_fwfl _lsn skills">
+                                {% foreach(skills) %}
+                                <li>
+                                    <h4>[[NAME]]</h4>
+                                    <b><i class="rate-[[RATES]]"></i></b>
+                                </li>
+                                {% endforeach %}
+                            </ul>
+                        </div>
+                        <div class="_fwfl education">
+                            <h3 class="_fwfl">Education</h3>
+                            <div class="_fwfl">
+                                <ul class="_fwfl _lsn time-line">
+                                    {% foreach(education) %}
+                                    <li>
+                                        <h4>[[SUBJECT]]</h4>
+                                        <i><i class="fa fa-calendar"></i> [[TIME_LETTER]]</i>
+                                        <span>[[QUALIFICATION]]</span>
+                                        <div>[[COLLEGE_NAME]]</div>
+                                    </li>
+                                    {% endforeach %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right" id="right">
+                    <h3 class="_fwfl">Experience</h3>
+                    <div class="_fwfl">
+                        <ul class="_fwfl _lsn time-line">
+                            {% foreach(experiences) %}
+                            <li>
+                                <h4>[[POSITION]]</h4>
+                                <i ><i class="fa fa-calendar"></i> [[TIME_LETTER]]</i>
+                                <span>[[COMPANY_NAME]] | [[LINK_TEXT]]</span>
+                                <div>[[DESCRIPTION]]</div>
+                            </li>
+                            {% endforeach %}
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="{{ ASSET }}/js/jquery_v1.11.1.js"></script>
+    <script>
+        window.onload = function () {
+            var leftSide    = document.getElementById('left-inside'),
+                rightHeight = document.getElementById('right').clientHeight;
+
+            leftSide.style.height = (rightHeight + 20) + 'px';
+        }
+    </script>
+</body>
+</html>

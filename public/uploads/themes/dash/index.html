@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
+        <link rel="stylesheet" href="{{ ASSET }}/css/app.css">
+        <link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+    </head>
+
+    <body>
+        <main>
+            <div class="wrapper" id="pdfhtmlcontents">
+                <div class="left">
+                    <section class="_fwfl text-center avatar-name-job">
+                        <img src="{{AVATAR_128}}" />
+                        <h1>{{FIRST_NAME}} {{LAST_NAME}}</h1>
+                        <h4>{{EXPECTED_JOB}}</h4>
+                    </section>
+                    <div class="_fwfl left-container">
+                        <section class="_fwfl content-box">
+                            <h3 class="_fwfl title"><b><i class="fa fa-user-o"></i></b> <span>About Me</span></h3>
+                            <div class="_fwfl content about-me">{{ABOUT_ME}}</div>
+                        </section>
+                        <section class="_fwfl content-box content-skill">
+                            <h3 class="_fwfl title"><b><i class="fa fa-star-o"></i></b> <span>My Skills</span></h3>
+                            <div class="_fwfl content">
+                                <ul class="_fwfl _lsn skill-list">
+                                    {% foreach(skills) %}
+                                    <li>
+                                        <span class="skill-name">[[ NAME ]]</span>
+                                        <span class="skill-rate"><b class="rate-[[ RATES ]]"></b></span>
+                                    </li>
+                                    {% endforeach %}
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="_fwfl content-box contact-desktop">
+                            <h3 class="_fwfl title"><b><i class="fa fa-address-book"></i></b> <span>Contact Me</span></h3>
+                            <div class="_fwfl content">
+                                <ul class="_fwfl _lsn contact-list">
+                                    <li><span class="long-score">&nbsp;</span>{{ BIRTHDAY }}</li>
+                                    <li><span class="long-score">&nbsp;</span>{{ STREET }}, {{ CITY }}</li>
+                                    <li><span class="long-score">&nbsp;</span>{{EMAIL}}</li>
+                                    <li><span class="long-score">&nbsp;</span>{{PHONE_NUMBER}}</li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="right">
+                    <section class="_fwfl content-box">
+                        <h3 class="_fwfl title"><b><i class="fa fa-suitcase"></i></b> <span>Experience</span></h3>
+                        <div class="_fwfl content">
+                            {% foreach(experiences) %}
+                            <div class="_fwfl history-row">
+                                <div class="_fwfl history-header">
+                                    <h3>[[POSITION]]</h3>
+                                    <h5>
+                                        <span><i class="fa fa-map-marker"></i> [[COMPANY_NAME]]</span>
+                                        <span><i class="fa fa-calendar"></i> [[TIME_LETTER]]</span>
+                                    </h5>
+                                </div>
+                                <div class="_fwfl history-desc">[[DESCRIPTION]]</div>
+                            </div>
+                            {% endforeach %}
+                        </div>
+                    </section>
+                    <section class="_fwfl content-box">
+                        <h3 class="_fwfl title"><b><i class="fa fa-trophy"></i></b> <span>Education</span></h3>
+                        <div class="_fwfl content">
+                            {% foreach(education) %}
+                            <div class="_fwfl history-row">
+                                <div class="_fwfl history-header">
+                                    <h3>[[COLLEGE_NAME]]</h3>
+                                    <h5>
+                                        <span><i class="fa fa-graduation-cap"></i> [[SUBJECT]]</span>
+                                        <span><i class="fa fa-calendar"></i> [[TIME_LETTER]]</span>
+                                    </h5>
+                                </div>
+                                <div class="_fwfl history-desc">[[QUALIFICATION]]</div>
+                            </div>
+                            {% endforeach %}
+                        </div>
+                    </section>
+                    <section class="_fwfl content-box contact-mobile">
+                        <h3 class="_fwfl title"><b><i class="fa fa-address-book"></i></b> <span>Contact Me</span></h3>
+                        <div class="_fwfl content">
+                            <ul class="_fwfl _lsn contact-list">
+                                <li><span class="long-score">&nbsp;</span>{{ BIRTHDAY }}</li>
+                                <li><span class="long-score">&nbsp;</span>{{ STREET }}, {{ CITY }}</li>
+                                <li><span class="long-score">&nbsp;</span>{{EMAIL}}</li>
+                                <li><span class="long-score">&nbsp;</span>{{PHONE_NUMBER}}</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="_fwfl content-box">
+                        <h3 class="_fwfl title"><b><i class="fa fa-music"></i></b> <span>Interest</span></h3>
+                        <div class="_fwfl content">{{HOBBIES}}</div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </body>
+
+</html>

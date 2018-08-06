@@ -1,0 +1,19 @@
+body {
+    background-color: #fff;
+}
+.wrapper {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    margin: 0;
+}
+.left {
+    width: 380px;
+}
+.right {
+    width: 620px;
+}
+.content-box .title span {
+    width: 85%;
+}

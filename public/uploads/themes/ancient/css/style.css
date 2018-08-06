@@ -1,0 +1,333 @@
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/RobotoMono/RobotoMono-Regular.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/RobotoMono/RobotoMono-Bold.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Sacramento';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/Sacramento/Sacramento-Regular.woff2') format('woff2'),
+    url('../fonts/Sacramento/Sacramento-Regular.woff') format('woff'),
+    url('../fonts/Sacramento/Sacramento-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Amatic SC';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/AmaticSC/AmaticSC-Bold.woff2') format('woff2'),
+    url('../fonts/AmaticSC/AmaticSC-Bold.woff') format('woff'),
+    url('../fonts/AmaticSC/AmaticSC-Bold.ttf') format('truetype');
+}
+/* Common Classes */
+._fwfl {
+    width: 100%;
+    float: left;
+}
+._fl {
+    float: left;
+}
+._lsn {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+._m0 {
+    margin: 0;
+}
+.long-score {
+    width: 16px;
+    float: left;
+    margin-right: 2px;
+    border-bottom: solid 1px;
+    line-height: 15px;
+}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+body {
+    background-color: #efefef;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    color: #444;
+}
+main {
+    width: 1020px;
+    margin: 0 auto;
+}
+.wrapper {
+    width: 100%;
+    float: left;
+    padding: 80px 80px 40px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01);
+    overflow: hidden;
+    background-color: #fff;
+}
+header>h1,
+header>h3 {
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    margin: 0;
+}
+header>h1 {
+    font-weight: 700;
+    font-size: 86px;
+}
+header>h3 {
+    font-weight: 700;
+    font-size: 40px;
+}
+.contact-list {
+    margin-top: 25px;
+}
+.contact-list>li {
+    width: 100%;
+    float: left;
+    text-align: center;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+}
+header .border {
+    max-width: 450px;
+    margin: auto;
+}
+header .border span{
+    width: 100%;
+    float: left;
+    margin-top: 50px;
+    border-bottom: dotted 2px #777;
+}
+div.body {
+    position: relative;
+    margin-top: 2px;
+    margin-bottom: 30px;
+}
+div.body:before {
+    position: absolute;
+    width: 2px;
+    height: 103%;
+    border-left: dotted 2px #777;
+    left: 50%;
+    margin-left: -1px;
+    content: "";
+}
+div.body>.left,
+div.body>.right {
+    width: 50%;
+    float: left;
+    padding-top: 30px;
+}
+div.body>.left {
+    padding-right: 50px;
+    text-align: right;
+}
+div.body>.right {
+    padding-left: 50px;
+    text-align: left;
+}
+section.card {
+    width: 100%;
+    float: left;
+    margin-bottom: 50px;
+}
+section.card:last-child {
+    margin-bottom: 0;
+}
+section.card>h3,
+section.card>div {
+    width: 100%;
+    float: left;
+}
+section.card>h3 {
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 38px;
+    font-family: 'Amatic SC', cursive;
+}
+section.card>div {
+    margin-top: 30px;
+}
+.time-line>li {
+    width: 100%;
+    float: left;
+    margin-bottom: 27px;
+}
+.time-line>li:last-child {
+    margin-bottom: 0;
+}
+.time-line>li>h4,
+.time-line>li>i,
+.time-line>li>span,
+.time-line>li>div {
+    width: 100%;
+    float: left;
+}
+.time-line>li>h4 {
+    margin: 0 0 7px;
+    text-transform: uppercase;
+}
+.time-line>li>i {
+    margin-bottom: 5px;
+    color: #555;
+}
+.time-line>li>span {
+    margin-bottom: 7px;
+    font-weight: 700;
+}
+.skills>li {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+}
+.skills>li:last-child {
+    margin-bottom: 0;
+}
+.skills>li>h4,
+.skills>li>b {
+    width: 100%;
+    float: left;
+    margin: 0;
+}
+.skills li b {
+    position: relative;
+    height: 7px;
+    margin-top: 7px;
+    border: solid 1px #777;
+}
+.skills b i {
+    position: absolute;
+    height: 5px;
+    right: 0;
+    background-color: #999;
+}
+.skills b i.rate-1 {width: 20%;}
+.skills b i.rate-2 {width: 40%;}
+.skills b i.rate-3 {width: 60%;}
+.skills b i.rate-4 {width: 80%;}
+.skills b i.rate-5 {width: 100%;}
+footer>.personal-logo {
+    width: 90px;
+    margin: auto;
+}
+footer>.personal-logo>span {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    float: left;
+}
+footer>.personal-logo>span::after,
+footer>.personal-logo>span::before {
+    position: absolute;
+    width: 0;
+    height: 0;
+    content: "";
+    border-right: 45px solid transparent;
+    border-left: 45px solid transparent;
+}
+footer>.personal-logo>span::after {
+    top: 45px;
+    left: 0;
+    border-top: 45px solid #777;
+    border-bottom: 0;
+}
+footer>.personal-logo>span::before {
+    border-top: 0;
+    border-bottom: 45px solid #777;
+}
+.personal-logo>span>i {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Sacramento', cursive;;
+    font-size: 26px;
+    line-height: 90px;
+    color: #eee;
+    z-index: 10;
+}
+@media screen and (max-width: 1024px) {
+    main {
+        width: 100%;
+        float: left;
+    }
+    .wrapper {
+        margin: 0;
+    }
+}
+@media screen and (max-width: 768px) {
+    .wrapper {
+        padding: 50px;
+    }
+}
+@media screen and (max-width: 680px) {
+    .wrapper {
+        padding: 40px 15px 30px;
+    }
+    header>h1, header>h3 {
+        text-align: left;
+    }
+    header>h1 {
+        font-size: 68px;
+    }
+    header>h3 {
+        font-size: 34px;
+    }
+    .contact-list>li {
+        text-align: left;
+        text-transform: capitalize;
+    }
+    header .border {
+        display: none;
+    }
+    div.body {
+        margin-top: 50px;
+    }
+    div.body:before {
+        display: none;
+    }
+    section.card>div {
+        margin-top: 20px;
+    }
+    div.body>.left,
+    div.body>.right {
+        width: 100%;
+        float: left;
+        padding: 0;
+        text-align: left;
+    }
+    div.body>.right {
+        margin-top: 50px;
+    }
+    .skills b i {
+        left: 0;
+    }
+
+}

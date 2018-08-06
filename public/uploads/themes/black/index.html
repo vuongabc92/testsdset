@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
+        <link rel="stylesheet" href="{{ ASSET }}/css/app.css">
+        <link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+    </head>
+
+    <body>
+        <main>
+            <div class="wrapper" id="pdfhtmlcontents">
+                <header>
+                    <div class="left">
+                        <div class="avatar">
+                            <img src="{{AVATAR_128}}" />
+                        </div>
+                        <div class="name">
+                            <h1>{{FIRST_NAME}}</h1>
+                            <h1>{{LAST_NAME}}</h1>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <span><strong>{{EXPECTED_JOB}}</strong></span>
+                        <span>{{EMAIL}}</span>
+                        <span>{{PHONE_NUMBER}}</span>
+                    </div>
+                </header>
+                <div class="_fwfl resume">
+                    <h1>RESUME</h1>
+                    <div class="_fwfl resume-content">{{ABOUT_ME}}</div>
+                </div>
+                <div class="_fwfl body">
+                    <div class="left">
+                        <section class="content-box">
+                            <h4 class="title">WORK EXPERIENCES</h4>
+                            <div class="content">
+                                {% foreach(experiences) %}
+                                <div class="history-row">
+                                    <b>[[TIME_LETTER]]</b>
+                                    <h4>[[POSITION]] | <span>[[COMPANY_NAME]]</span></h4>
+                                    <div>[[DESCRIPTION]]</div>
+                                </div>
+                                {% endforeach %}
+                            </div>
+                        </section>
+                        <section class="content-box">
+                            <h4 class="title">EDUCATION</h4>
+                            <div class="content">
+                                {% foreach(education) %}
+                                <div class="history-row">
+                                    <b>[[TIME_LETTER]]</b>
+                                    <h4>[[SUBJECT]] | <span>[[QUALIFICATION]]</span></h4>
+                                    <div>[[COLLEGE_NAME]]</div>
+                                </div>
+                                {% endforeach %}
+                            </div>
+                        </section>
+                    </div>
+                    <div class="right">
+                        <section class="content-box">
+                            <h4 class="title">SKILLS</h4>
+                            <div class="content">
+                                {% foreach(skills) %}
+                                <div class="skill-row">
+                                    <span><b class="rate-[[RATES]]"></b></span>
+                                    <h5>[[NAME]]</h5>
+                                </div>
+                                {% endforeach %}
+                            </div>
+                        </section>
+                        <section class="content-box">
+                            <h4 class="title">INTEREST</h4>
+                            <div class="content">
+                                {{HOBBIES}}
+                            </div>
+                        </section>
+                        <section class="content-box">
+                            <h4 class="title">EXTRAS</h4>
+                            <div class="content">
+                                <p><i class="long-score">&nbsp;</i>{{ STREET }}, {{ CITY }}</p>
+                                <p><i class="long-score">&nbsp;</i>{{GENDER}}</p>
+                                <p><i class="long-score">&nbsp;</i>{{BIRTHDAY}}</p>
+                                {% foreach(socials) %}
+                                    <p><i class="long-score">&nbsp;</i>[[ LINK ]]</p>
+                                {% endforeach %}
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

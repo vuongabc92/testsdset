@@ -1,0 +1,14 @@
+body {
+    background-color: #fff;
+}
+.wrapper {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.left {
+     width: 387.59px;
+}
