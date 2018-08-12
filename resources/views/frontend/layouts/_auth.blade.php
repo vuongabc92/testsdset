@@ -27,5 +27,26 @@
         <script type="text/javascript" src="{{ asset('assets/frontend/js/bootstrap.js') }}"></script>
         <script type="text/javascript" src="{{ asset('assets/frontend/js/bootstrap-switch.js') }}"></script>
         <script type="text/javascript" src="{{ asset('assets/frontend/js/script.js') }}"></script>
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '{your-app-id}',
+                    cookie     : true,
+                    xfbml      : true,
+                    version    : '{api-version}'
+                });
+
+                FB.AppEvents.logPageView();
+
+            };
+
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
     </body>
 </html>
