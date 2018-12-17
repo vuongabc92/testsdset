@@ -32,7 +32,7 @@ class ThemeCompiler extends Compiler {
      *  
      * @var string 
      */
-    protected $themesFolder = 'uploads/themes';
+    protected $themesFolder = 'themes';
 
     /**
      * Public folder

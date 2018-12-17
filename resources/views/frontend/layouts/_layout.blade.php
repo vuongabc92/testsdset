@@ -23,6 +23,7 @@
         <header class="_fwfl header">
             <div class="header-inside">
                 <nav class="header-nav">
+                    <a href="{{ url('/') }}" class="logo"><img src="{{ asset('assets/frontend/images/logo.png') }}" /> </a>
                     @if ( ! auth()->check())
                         <a href="{{ route('front_register') }}" class="_fr btn _btn _btn-blue header-register-btn">{{ _t('register') }}</a>
                     @endif

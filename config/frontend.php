@@ -3,9 +3,9 @@
 return [
     'defaultThemeName'         => 'twenty-seventeen',
     'uploadsFolder'            => 'uploads',
-    'themesFolder'             => 'uploads/themes',
-    'tmpFolder'                => 'uploads/tmp',
-    'themesTmpFolder'          => 'uploads/themes_tmp',
+    'themesFolder'             => 'themes',
+    'tmpFolder'                => 'tmp',
+    'themesTmpFolder'          => 'themes_tmp',
     'avatarsFolder'            => 'uploads/avatars',
     'avatarDefault'            => 'uploads/avatars/__default.jpg',
     'coversFolder'             => 'uploads/covers',
@@ -91,8 +91,8 @@ return [
     'themeFileExtensionsAllow' => ['html', 'js', 'css', 'png', 'jpg', 'gif', 'jpeg', 'otf', 'eot', 'svg', 'ttf', 'woff', 'woff2', 'json', 'txt'],
     'themeFilesRequired'       => ['index.html', 'screenshot.png', 'thumbnail.png'],
     'facebook_api' => [
-        'app_id'                => '436606366776307',
-        'app_secret'            => '2e91f91d0a8ee14e189d39a56c740f1d',
+        'app_id'                => '2188709771402525',
+        'app_secret'            => '118137a3f541985ccba5302f240f1df2',
         'default_graph_version' => 'v2.2',
     ],
     'google_api' => [

@@ -8,7 +8,7 @@
 <div class="_fwfl">
     <header class="page-header" style="background-image: url({{ asset(($page) ? $page->getBannerImage() : '') }})">
         <div class="constraint">
-            <h1>{!! ($page) ? $page->name : 'Developer' !!}</h1>
+            <h1>{!! ($page) ? $page->title : 'Developer' !!}</h1>
         </div>
     </header>
     

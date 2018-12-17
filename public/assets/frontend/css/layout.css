@@ -1,3 +1,6 @@
+/*
+info.octocv@gmail.com
+*/
 .header {
     height: 60px;
     background-color: #fff;
@@ -10,6 +13,11 @@
 .header-nav {
     height: 34px;
     margin-top: 12px;
+}
+.header-nav>.logo {
+    width: 134px;
+    height: 34px;
+    float: left;
 }
 .header-register-btn {
     margin-left: 25px;

@@ -11,7 +11,7 @@
 @section('body')
 <div class="_fwfl">
     <div class="auth-box login-box">
-        {!! Form::open(['route' => 'front_forgotpass_post', 'method' => 'POST', 'class' => '_fwfl auth-form']) !!}
+        {!! Form::open(['route' => 'front_forgotpass_post', 'method' => 'POST', 'class' => '_fwfl auth-form', 'data-required' => 'email']) !!}
             <h1 class="_fwfl _m0 _p0 auth-form-title">{{ _t('password.form.forgot_title') }}</h1>
             <div class="_fwfl auth-field-group first-field-group">
                 <label class="_fwfl _fs14 _fwn _tg5" for="email">

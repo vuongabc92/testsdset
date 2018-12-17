@@ -2,7 +2,7 @@
 
 return [
     'pagination' => [
-        'max_per_page' => 5
+        'max_per_page' => 50
     ],
     'page' => [
         'slug' => [

@@ -11,7 +11,7 @@
     <div class="page-header-wrap">
         <header class="page-header" style="background-image: url({{ $page->getBannerImage() }})">
             <div class="constraint">
-                <h1>{{ $page->name }}</h1>
+                <h1>{{ $page->title }}</h1>
             </div>
         </header>
     </div>
