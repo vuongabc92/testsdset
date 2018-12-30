@@ -8,20 +8,18 @@
             <a href="{{ route('front_settings') }}" title="{{ _t('theme.download.settings') }}"><i class="fa fa-cog"></i></a>
         </li>
         <li>
-            <a href="{{ route('front_theme_download', ['slug' => $slug]) }}" title="{{ _t('theme.download.downpdf') }}" id="downloadPdfLink"><i class="fa fa-download"></i></a>
+            <a href="{{ route('front_theme_download', ['slug' => $slug, 'height' => 'TMP_HEIGHT']) }}" title="{{ _t('theme.download.downpdf') }}" id="downloadPdfLink"><i class="fa fa-download"></i></a>
         </li>
     </ul>
 </div>
 <script src="/assets/frontend/js/jquery_v1.11.1.js"></script>
 <script>
     $(document).ready(function(){
-        var htmlHeight = $('#pdfhtmlcontents').height();
-        console.log(htmlHeight);
-        if (htmlHeight <= 1320) {
-            var downloadPdfLink = $('#downloadPdfLink');
-            var downloadLink    = downloadPdfLink.attr('href');
+        var pdfWrapperClass = "{{ config('frontend.pdfWrapperClass') }}",
+            htmlHeight      = $('#' + pdfWrapperClass).height(),
+            downloadPdfLink = $('#downloadPdfLink'),
+            downloadHref    = downloadPdfLink.attr('href');
 
-            downloadPdfLink.attr('href', downloadLink + '/' + htmlHeight);
-        }
+        downloadPdfLink.attr('href', downloadHref.replace('TMP_HEIGHT', htmlHeight));
     });
 </script>

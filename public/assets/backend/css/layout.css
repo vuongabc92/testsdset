@@ -1,0 +1,11 @@
+.container-inside {
+    margin-top: 50px;
+}
+.page-title {
+    padding-bottom: 2px;
+    border-bottom: solid 2px #777;
+    color: #555;
+}
+.user-details-avatar {
+    max-width: 100px;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
+<link rel="stylesheet" href="{{ ASSET }}/css/app.css">
+<link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+
+</head>
+
+<body>
+    <main>
+        <div class="wrapper">
+            <header class="_fwfl">
+                <div class="logo">
+                    <div class="_fwfl logo-inside">
+                        <span class="fnl">{{FIRST_NAME_LETTER}}</span>
+                        <span class="lnl">{{LAST_NAME_LETTER}}</span>
+                        <i></i>
+                    </div>
+                </div>
+                <div class="name-job">
+                    <h1>{{FIRST_NAME}} <span>{{LAST_NAME}}</span></h1>
+                    <h3>{{EXPECTED_JOB}}</h3>
+                </div>
+            </header>
+            <div class="_fwfl body">
+                <div class="_bg-noise left">
+                    <div class="_fwfl avatar">
+                        <img src="{{AVATAR_128}}" />
+                        <i>&rdquo;</i>
+                    </div>
+                    <div class="_fwfl left-content">
+                        <section class="_fwfl card">
+                            <h3 class="_fwfl">Profile</h3>
+                            <div class="_fwfl">
+                                {{ABOUT_ME}}
+                            </div>
+                        </section>
+                        <section class="_fwfl card">
+                            <h3 class="_fwfl">Contact</h3>
+                            <div class="_fwfl">
+                                <ul class="_fwfl _lsn contact">
+                                    <li>
+                                        <h5>Address</h5>
+                                        <span>{{STREET}}, {{CITY}}</span>
+                                    </li>
+                                    <li>
+                                        <h5>Phone</h5>
+                                        <span>{{PHONE_NUMBER}}</span>
+                                    </li>
+                                    <li>
+                                        <h5>Email</h5>
+                                        <span>{{EMAIL}}</span>
+                                    </li>
+                                    <li>
+                                        <h5>Birthday</h5>
+                                        <span>{{BIRTHDAY}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="_fwfl card card-dek">
+                            <h3 class="_fwfl">Education</h3>
+                            <div class="_fwfl">
+                                <ul class="_fwfl _lsn time-line">
+                                    {% foreach(education) %}
+                                    <li>
+                                        <h4>[[SUBJECT]]</h4>
+                                        <i>[[TIME_LETTER]]</i>
+                                        <span>[[QUALIFICATION]]</span>
+                                        <div>[[COLLEGE_NAME]]</div>
+                                    </li>
+                                    {% endforeach %}
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="_fwfl card card-dek">
+                            <h3 class="_fwfl">Interest</h3>
+                            <div class="_fwfl">
+                                {{HOBBIES}}
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="right">
+                    <section class="_fwfl card">
+                        <h3 class="_fwfl">Experience</h3>
+                        <div class="_fwfl">
+                            <ul class="_fwfl _lsn time-line">
+                                {% foreach(experiences) %}
+                                <li>
+                                    <div class="left">
+                                        <i>[[TIME]]</i>
+                                    </div>
+                                    <div class="right">
+                                        <h4>[[POSITION]]</h4>
+                                        <i>[[TIME]]</i>
+                                        <span>[[COMPANY_NAME]] | [[LINK_TEXT]]</span>
+                                        <div>[[DESCRIPTION]]</div>
+                                    </div>
+                                </li>
+                                {% endforeach %}
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="_fwfl card">
+                        <h3 class="_fwfl">Skills &amp; Expertise</h3>
+                        <div class="_fwfl">
+                            <ul class="_fwfl _lsn skills">
+                                {% foreach(skills) %}
+                                <li>
+                                    <h4>[[NAME]]</h4>
+                                    <b><i class="rate-[[RATES]]"></i></b>
+                                </li>
+                                {% endforeach %}
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="_fwfl card card-mb">
+                        <h3 class="_fwfl">Education</h3>
+                        <div class="_fwfl">
+                            <ul class="_fwfl _lsn time-line">
+                                {% foreach(education) %}
+                                <li>
+                                    <h4>[[SUBJECT]]</h4>
+                                    <i>[[TIME_LETTER]]</i>
+                                    <span>[[QUALIFICATION]]</span>
+                                    <div>[[COLLEGE_NAME]]</div>
+                                </li>
+                                {% endforeach %}
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="_fwfl card card-mb">
+                        <h3 class="_fwfl">Interest</h3>
+                        <div class="_fwfl">
+                            {{HOBBIES}}
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

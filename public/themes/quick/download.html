@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
+        <link rel="stylesheet" href="{{ ASSET }}/css/app.css">
+        <link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+        <link rel="stylesheet" href="{{ ASSET }}/css/download.css">
+    </head>
+    {% config %}
+    [[ pdf-margin-bottom-page-1:5 ]]
+    [[ pdf-margin-top-page-2:5 ]]
+    [[ pdf-margin-top-page-3:5 ]]
+    {% end_config %}
+    <body>
+        <main>
+            <div class="wrapper">
+                <header class="_fwfl">
+                    <div class="_fwfl name-avatar-job">
+                        <img src="{{ AVATAR_128 }}" class="avatar"/>
+                        <div class="name-job">
+                            <h1>{{ FIRST_NAME }} {{ LAST_NAME }}</h1>
+                            <h3>{{ EXPECTED_JOB }}</h3>
+                        </div>
+                    </div>
+                    <div class="about">
+                        {{ABOUT_ME}}
+                    </div>
+                </header>
+                <section class="body">
+                    <div class="left">
+                        <section class="content-box experience">
+                            <h2 class="title">Experience</h2>
+                            <div class="content">
+                                {% foreach(experiences) %}
+                                    <div class="time-box">
+                                        <div class="time-title">
+                                            <h4>[[ POSITION ]]</h4>
+                                            <span>[[ TIME_LETTER ]]</span>
+                                        </div>
+                                        <div class="time-content">
+                                            <h4>@[[ COMPANY_NAME ]] - </h4>
+                                            <p>[[ DESCRIPTION ]]</p>
+                                        </div>
+                                    </div>
+                                {% endforeach %}
+                            </div>
+                        </section>
+                    </div>
+                    <div class="right">
+                        <section class="content-box education">
+                            <h2 class="title">Education</h2>
+                            <div class="content">
+                                {% foreach(education) %}
+                                    <div class="time-box">
+                                        <div class="time-title">
+                                            <h4>[[ SUBJECT ]]</h4>
+                                            <span>[[ TIME_LETTER ]]</span>
+                                        </div>
+                                        <div class="time-content">
+                                            <p>[[ COLLEGE_NAME ]]</p>
+                                        </div>
+                                    </div>
+                                {% endforeach %}
+                            </div>
+                        </section>
+                        <section class="content-box skill">
+                            <h2 class="title">Core Skills</h2>
+                            <div class="content">
+                                <ul class="skill-list">
+                                    {% foreach(skills) %}
+                                        <li>
+                                            <span>[[ NAME ]]</span>
+                                            <b><i class="rate rate-[[ RATES ]]"></i></b>
+                                        </li>
+                                    {% endforeach %}
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+                <section class="footer">
+                    <section class="content-box contact">
+                        <h2 class="title">Contact</h2>
+                        <div class="content">
+                            <ul class="_fwfl _lsn contact-list">
+                                <li>
+                                    <span class="contact-info"><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></span>
+                                    <span class="contact-title">Email</span>
+                                </li>
+                                <li>
+                                    <span class="contact-info"><a href="tel:{{PHONE_NUMBER}}">{{PHONE_NUMBER}}</a></span>
+                                    <span class="contact-title">Phone</span>
+                                </li>
+                                <li>
+                                    <span class="contact-info"><a href="{{WEBSITE}}" target="_blank">{{WEBSITE}}</a></span>
+                                    <span class="contact-title">Website</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </main>
+    </body>
+
+</html>

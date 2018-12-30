@@ -35,16 +35,16 @@ return [
         'vk'          => 'vk.com',
     ],
     'availableSocialIcons' => [
-        'facebook'    => 'facebook',
-        'twitter'     => 'twitter',
-        'instagram'   => 'instagram',
-        'google-plus' => 'google-plus',
-        'tumblr'      => 'tumblr',
-        'vine'        => 'vine',
-        'ello'        => 'ello',
-        'linkedin'    => 'linkedin',
-        'pinterest'   => 'pinterest',
-        'vk'          => 'vk',
+        'facebook'    => 'fab fa-facebook-f',
+        'twitter'     => 'fab fa-twitter',
+        'instagram'   => 'fab fa-instagram',
+        'google-plus' => 'fab fa-google-plus',
+        'tumblr'      => 'fab fa-tumblr',
+        'vine'        => 'fab fa-vine',
+        'ello'        => 'fab fa-ello',
+        'linkedin'    => 'fab fa-linkedin',
+        'pinterest'   => 'fab fa-pinterest',
+        'vk'          => 'fab fa-vk',
     ],
     'availableSocial' => [
         'facebook'    => 'Facebook',
@@ -100,7 +100,7 @@ return [
         'client_secret' => 'p5Jw7_cEjBkGIRK68MiBIIia',
         'app_name'      => 'NEXT',
     ],
-    'wkhtmltopdf' => [
+    'wkhtmltopdf' => [ //Only compatible with version 0.12.4
         'no-outline',
         'javascript-delay' => 1000,
         'dpi'            => 100,
@@ -108,7 +108,7 @@ return [
         'margin-right'   => 0,
         'margin-bottom'  => 0,
         'margin-left'    => 0,
-        'binary'         => '/usr/local/bin/wkhtmltopdf',
+        'binary'         => '/usr/bin/wkhtmltopdf',
         'page-size'      => 'letter',
         'viewport-size'  => '1366x768',
         'ignoreWarnings' => true,
@@ -122,5 +122,18 @@ return [
     'lazy_loading' => [
         'per_page' => 5
     ],
-    'pdfMaxHeight' => 1320
+    'pdfMaxHeight'      => 1320,
+    'pdfWrapperClass'   => 'pdfWrapperClass',
+    'pdfDownloadPrefix' => 'AwesomeResume-'
 ];
+
+//HOW TO INSTALL WKHTMLTOPDF 0.12.4
+//https://gist.github.com/srmds/2507aa3bcdb464085413c650fe42e31d
+//$sudo apt-get install libxrender1
+//$ wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+//$ tar -xvf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+//$ cd wkhtmltox/bin/
+//$ sudo mv wkhtmltopdf /usr/bin/wkhtmltopdf
+//$ sudo mv wkhtmltoimage /usr/bin/wkhtmltoimage
+//$ sudo chmod a+x /usr/bin/wkhtmltopdf
+//$ sudo chmod a+x /usr/bin/wkhtmltoimage

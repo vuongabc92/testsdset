@@ -1,0 +1,25 @@
+body {
+    background-color: #fff;
+}
+.wrapper {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    margin: 0;
+}
+header .intro h2 .my-story {
+    width: 240px;
+}
+header .intro h2 b {
+    position: relative;
+    text-decoration: none;
+}
+header .intro h2 b>i {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: #333;
+    left: 0;
+    top: 34px;
+}

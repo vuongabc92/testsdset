@@ -13,6 +13,7 @@ Route::group(['middleware' => ['web', 'master'], 'prefix' => 'kamehameha'], func
     $route->post('theme/save', 'ThemeController@save')->name('back_theme_save');
     $route->post('theme/update_status', 'ThemeController@updateStatus')->name('back_theme_status');
     $route->post('theme/remove', 'ThemeController@remove')->name('back_theme_remove');
+    $route->get('theme/generate-screenshot', 'ThemeController@generateScreenshot')->name('back_theme_screenshot');
 
     $route->get('pages', 'PageController@index')->name('back_pages');
     $route->get('page/add', 'PageController@add')->name('back_page_add');

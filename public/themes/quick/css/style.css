@@ -1,0 +1,348 @@
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/RobotoMono/RobotoMono-Regular.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/RobotoMono/RobotoMono-Bold.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.ttf') format('truetype');
+}
+/* Common Classes */
+._fwfl {
+    width: 100%;
+    float: left;
+}
+._fl {
+    float: left;
+}
+._lsn {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+._m0 {
+    margin: 0;
+}
+.long-score {
+    width: 16px;
+    float: left;
+    margin-right: 2px;
+    border-bottom: solid 1px;
+    line-height: 15px;
+}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #f5f5f5;
+}
+main {
+    width: 1020px;
+    margin: 0 auto;
+}
+.wrapper {
+    width: 100%;
+    float: left;
+    min-height: 1320px;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    padding: 60px;
+    background-color: #fff;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: -1px 1px 2px rgba(0,0,0,0.07);
+    -webkit-box-shadow: -1px 1px 2px rgba(0,0,0,0.07);
+}
+.name-avatar-job img {
+    width: 64px;
+    height: 64px;
+    float: left;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.name-job {
+    float: left;
+    margin-top: 8px;
+    padding-left: 20px;
+}
+.name-job h1 {
+    margin: 0 0 5px 0;
+    font-size: 24px;
+    color: #333;
+}
+.name-job h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+}
+.about {
+    width: 100%;
+    float: left;
+    margin-top: 50px;
+    font-size: 24px;
+    line-height: 34px;
+    color: #333;
+}
+.body {
+    width: 100%;
+    float: left;
+    margin-top: 50px;
+}
+.body .left {
+    width: 50%;
+    float: left;
+    padding-right: 20px;
+}
+.body .right {
+    width: 50%;
+    float: left;
+    padding-left: 20px;
+}
+.content-box {
+    width: 100%;
+    float: left;
+    margin-bottom: 70px;
+}
+.content-box:last-child {
+    margin-bottom: 0;
+}
+.content-box .title {
+    width: 100%;
+    float: left;
+    margin: 0 0 35px 0;
+    text-transform: uppercase;
+    font-size: 19px;
+}
+.experience .title {
+    color: #8f13fd;
+}
+.content-box .content {
+    width: 100%;
+    float: left;
+}
+.time-box {
+    width: 100%;
+    float: left;
+    margin-bottom: 30px;
+}
+.time-box:last-child {
+    margin-bottom: 0;
+}
+.time-content:last-child {
+    margin-bottom: 0;
+}
+.time-title {
+    width: 100%;
+    float: left;
+    margin-bottom: 7px;
+}
+.time-title h4 {
+    width: 60%;
+    float: left;
+    margin: 0;
+    font-size: 17px;
+    color: #333;
+}
+.time-title span {
+    width: 40%;
+    float: right;
+    color: #777;
+    text-align: right;
+}
+.time-content {
+    width: 100%;
+    float: left;
+}
+.time-content h4 {
+    margin: 0;
+    display: inline;
+    font-size: 17px;
+    color: #333;
+}
+.time-content p {
+    display: inline;
+    font-size: 16px;
+    color: #777;
+    line-height: 25px;
+}
+.education .title {
+    color: #0db896;
+}
+.skill .title {
+    color: #f4a620;
+}
+.contact .title {
+    color: #04902a;
+}
+.skill-list {
+    width: 100%;
+    float: left;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.skill-list li {
+    width: 100%;
+    float: left;
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.skill-list li:last-child {
+    margin-bottom: 0;
+}
+.skill-list li span {
+    width: 100%;
+    float: left;
+    margin-bottom: 3px;
+}
+.skill-list li b {
+    position: relative;
+    width: 100%;
+    float: left;
+    height: 3px;
+    background-color: #ccc;
+}
+.skill-list li b i {
+    position: absolute;
+    height: 3px;
+    background-color: #f4a620;
+}
+.skill-list li b i.rate-1 {width: 20%;}
+.skill-list li b i.rate-2 {width: 40%;}
+.skill-list li b i.rate-3 {width: 60%;}
+.skill-list li b i.rate-4 {width: 80%;}
+.skill-list li b i.rate-5 {width: 100%;}
+.footer {
+    width: 100%;
+    float: left;
+    margin-top: 70px;
+}
+.contact-list li {
+    width: 30%;
+    float: left;
+    margin-right: 3%;
+    display: inline;
+}
+.contact-list li .contact-title {
+    width: 100%;
+    float: left;
+    margin-top: -3px;
+    text-transform: uppercase;
+    color: #aaa;
+    font-size: 15px;
+}
+.contact-list li .contact-info {
+    width: 100%;
+    float: left;
+    font-size: 17px;
+    color: #555;
+}
+.contact-list li .contact-info a {
+    color: #555;
+}
+@media screen and (max-width: 1024px) {
+    body {
+        background-color: #fff;
+    }
+    main {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .wrapper {
+        min-height: auto;
+        margin-bottom: 0;
+        margin-top: 0;
+        border: none;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        width: 100%;
+        float: left;
+        margin: 0;
+    }
+    .wrapper {
+        border: none;
+        padding: 40px;
+    }
+    .body .left, .body .right {
+        width: 100%;
+        float: left;
+        padding: 0;
+    }
+    .body .right {
+        margin-top: 50px;
+    }
+    .about {
+        margin-top: 40px;
+        font-size: 22px;
+        line-height: 32px;
+    }
+    .content-box .title, .time-title h4 {
+        font-size: 15px;
+    }
+    .time-content h4 {
+        font-size: 15px;
+        color: #666;
+    }
+    .time-content h4 span {
+        font-size: 13px;
+    }
+    .time-title h4 {
+        width: auto;
+    }
+    .time-title span {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .wrapper {
+        padding: 30px 15px 20px 15px;
+    }
+    .about {
+        margin-top: 35px;
+        font-size: 19px;
+        line-height: 30px;
+    }
+
+    .content-box {
+        margin-bottom: 50px;
+    }
+    .content-box .title {
+        margin-bottom: 25px;
+    }
+    .footer {
+        margin-top: 50px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .contact-list li {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 17px;
+    }
+    .contact-list li:last-child {
+        margin-bottom: 0;
+    }
+    .contact-list li .contact-title {
+        margin-top: -1px;
+    }
+}

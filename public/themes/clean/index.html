@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
+        <link rel="stylesheet" href="{{ ASSET }}/css/app.css">
+        <link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+    </head>
+
+    <body>
+        <main>
+            <div class="wrapper" id="pdfhtmlcontents">
+                <section>
+                    <div class="left">
+                        <img class="avatar" src="{{ AVATAR_128 }}" />
+                    </div>
+                    <div class="right">
+                        <h1 class="_fwfl full-name">{{ FIRST_NAME }} {{ LAST_NAME }}</h1>
+                        <h4 class="_fwfl job">{{EXPECTED_JOB}}</h4>
+                        <ul class="_fwfl _lsn contact-list">
+                            <li><i class="fa fa-phone"></i><span>{{PHONE_NUMBER}}</span></li>
+                            <li><i class="fa fa-envelope"></i><span>{{EMAIL}}</span></li>
+                            <li><i class="fa fa-home"></i><span>{{STREET}}, {{CITY}}</span></li>
+                            <li><i class="fa fa-calendar"></i><span>{{BIRTHDAY}}</span></li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <div class="left">
+                        <h3 class="title">Experience</h3>
+                    </div>
+                    <div class="right">
+                        <div class="_fwfl content">
+                            <ul class="_fwfl _lsn history-list">
+                                {% foreach(experiences) %}
+                                <li>
+                                    <h4>@[[COMPANY_NAME]]</h4>
+                                    <span><b>[[POSITION]]</b><i>[[TIME_LETTER]]</i></span>
+                                    <div>[[DESCRIPTION]]</div>
+                                </li>
+                                {% endforeach %}
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="left">
+                        <h3 class="title">Education</h3>
+                    </div>
+                    <div class="right">
+                        <div class="_fwfl content">
+                            <ul class="_fwfl _lsn history-list">
+                                {% foreach(education) %}
+                                <li>
+                                    <h4>[[COLLEGE_NAME]]</h4>
+                                    <span><b>[[SUBJECT]]</b><i>[[TIME_LETTER]]</i></span>
+                                    <div>[[QUALIFICATION]]</div>
+                                </li>
+                                {% endforeach %}
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="left">
+                        <h3 class="title">Skills</h3>
+                    </div>
+                    <div class="right">
+                        <div class="_fwfl content">
+                            <ul class="_fwfl _lsn skill-list">
+                                {% foreach(skills) %}
+                                <li>
+                                    <b><i class="rate-[[RATES]]"></i></b>
+                                    <h4>[[NAME]]</h4>
+                                </li>
+                                {% endforeach %}
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="left">
+                        <h3 class="title">Interests</h3>
+                    </div>
+                    <div class="right">
+                        <div class="_fwfl content">
+                            {{HOBBIES}}
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </body>
+</html>

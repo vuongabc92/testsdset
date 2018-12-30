@@ -1,0 +1,332 @@
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/RobotoMono/RobotoMono-Regular.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/RobotoMono/RobotoMono-Bold.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.ttf') format('truetype');
+}
+/* Common Classes */
+._fwfl {
+    width: 100%;
+    float: left;
+}
+._fl {
+    float: left;
+}
+._lsn {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+._m0 {
+    margin: 0;
+}
+.long-score {
+    width: 16px;
+    float: left;
+    margin-right: 2px;
+    border-bottom: solid 1px;
+    line-height: 15px;
+}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+body {
+    background-color: #efefef;
+    font-family: 'Roboto Mono', monospace;
+}
+main {
+    width: 1020px;
+    margin: 0 auto;
+}
+.wrapper {
+    width: 100%;
+    min-height: 1320px;
+    float: left;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    background-color: #fff;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: -1px 1px 2px rgba(0,0,0,0.07);
+    -webkit-box-shadow: -1px 1px 2px rgba(0,0,0,0.07);
+}
+.wrapper .left {
+    width: 63%;
+    min-height: 1320px;
+    float: left;
+    padding: 80px 35px 35px;
+    border-right: solid 1px #ddd;
+}
+.header {
+    width: 100%;
+    float: left;
+    margin-bottom: 50px;
+}
+.avatar {
+    width: 110px;
+    height: 110px;
+    float: left;
+}
+.avatar img{
+    width: 100%;
+    float: left;
+    border-radius: 50%;
+}
+.name-job-address {
+    height: 110px;
+    margin-left: 130px;
+}
+.name-job-address h1 {
+    margin: 0;
+    padding-top: 5px;
+    color: #333;
+    font-size: 34px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.name-job-address h3 {
+    margin: 10px 0 0 0;
+    font-size: 20px;
+    color: #cc506c;
+}
+.name-job-address p {
+    color: #777;
+    margin-top: 8px;
+}
+.content-row {
+    width: 100%;
+    float: left;
+    margin-bottom: 50px;
+}
+.content-row:last-child {
+    margin-bottom: 0;
+}
+.content-row .title{
+    width: 100%;
+    float: left;
+    color: #cc506c;
+    letter-spacing: 2px;
+}
+.content-row .content{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 25px;
+    color: #666;
+}
+.content-row .content.border-left{
+    padding-left: 35px;
+    border-left: solid 1px #ddd;
+}
+.timeline-container {
+    width: 100%;
+    float: left;
+    margin-bottom: 30px;
+}
+.timeline-container:last-child {
+    margin-bottom: 0;
+}
+.timeline-container .time-title{
+    width: 100%;
+    float: left;
+    margin: 0 0 2px 0;
+    font-size: 20px;
+    color: #222;
+    line-height: 30px;
+}
+.timeline-container .time-point{
+    width: 100%;
+    float: left;
+    color: #cc506c;
+}
+.timeline-container .time-content{
+    width: 100%;
+    float: left;
+    margin-top: 15px;
+}
+.timeline-container .company-name{
+    color: #111;
+}
+.wrapper .right {
+    width: 37%;
+    min-height: 1320px;
+    float: right;
+    padding: 65px 35px 35px;
+}
+.details {
+    width: 100%;
+    float: left;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.details li{
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+}
+.details li:last-child {
+    margin-bottom: 0;
+}
+.details li i.fa {
+    width: 23px;
+    float: left;
+    margin-right: 10px;
+    line-height: 25px;
+}
+.details li span {
+    float: left;
+}
+.details li a {
+    float: left;
+    color: #555;
+}
+.skill-list li {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+}
+.skill-list li:last-child {
+    margin-bottom: 0;
+}
+.skill-list li h4 {
+    width: 100%;
+    float: left;
+}
+.skill-list li span {
+    position: relative;
+    width: 100%;
+    float: left;
+    height: 3px;
+    background-color: #ddd;
+}
+.skill-list li span b {
+    position: absolute;
+    height: 3px;
+    background-color: #cc506c;
+}
+.skill-list li b.rate-1 {width: 20%;}
+.skill-list li b.rate-2 {width: 40%;}
+.skill-list li b.rate-3 {width: 50%;}
+.skill-list li b.rate-4 {width: 80%;}
+.skill-list li b.rate-5 {width: 100%;}
+
+@media screen and (max-width: 1024px) {
+    body {
+        background-color: #fff;
+    }
+    main {
+        width: 100%;
+        float: left;
+        margin: 0;
+    }
+    .wrapper {
+        min-height: auto;
+        margin: 0;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+    .wrapper .left {
+        padding: 50px 35px;
+    }
+    .wrapper .right {
+        min-height: auto;
+        padding: 35px 35px 80px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper .left, .wrapper .right {
+        width: 100%;
+    }
+    .wrapper .left {
+        border-right: none;
+        padding-bottom: 40px;
+    }
+    .wrapper .right {
+        padding: 0 25px 35px;
+    }
+    .wrapper .left {
+        padding: 40px 25px;
+    }
+    .name-job-address h1 {
+        font-size: 34px;
+    }
+    .content-row {
+        margin-bottom: 40px;
+    }
+    .content-row .content {
+        padding-left: 35px;
+        border-left: solid 1px #ddd;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .wrapper .left {
+        padding: 30px 15px 30px 15px;
+    }
+    .wrapper .right {
+        padding: 0 15px 15px 15px;
+    }
+    .avatar {
+        width: 90px;
+        height: 90px;
+        float: left;
+    }
+    .name-job-address {
+        width: 100%;
+        height: 90px;
+        float: left;
+        margin-top: 20px;
+        margin-left: 0;
+    }
+    .name-job-address h1 {
+        font-size: 25px;
+    }
+    .name-job-address h3 {
+        margin: 6px 0 0 0;
+    }
+    .name-job-address p {
+        margin-top: 6px;
+    }
+    .header {
+        margin-bottom: 25px;
+    }
+    .content-row {
+        margin-bottom: 30px;
+    }
+    .content-row .content, 
+    .content-row .content.border-left {
+        padding-left: 0;
+        border-left: none;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .name-job-address h1 {
+        font-size: 24px;
+    }
+    .name-job-address h3 {
+        font-size: 18px;
+    }
+    .content-row .title {
+        font-size: 24px;
+    }
+    .timeline-container .time-title {
+        font-size: 18px;
+    }
+}

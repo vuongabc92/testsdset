@@ -23,7 +23,8 @@
     cursor: pointer;
 }
 .theme-tree>li .screenshot {
-    width: 100%;
+    width: 200px;
+    height: 250px;
     float: left;
 }
 .theme-tree>li>a>div.theme-leaf:hover > .quick-info {
@@ -192,7 +193,7 @@
     display: none;
 }
 .theme-details-wrap {
-    max-width: 890px;
+    max-width: 770px;
     padding: 0 15px;
     margin: 50px auto;
 }

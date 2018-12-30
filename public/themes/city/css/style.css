@@ -1,0 +1,332 @@
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/RobotoMono/RobotoMono-Regular.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/RobotoMono/RobotoMono-Bold.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.ttf') format('truetype');
+}
+
+/* Common Classes */
+._fwfl {
+    width: 100%;
+    float: left;
+}
+._fl {
+    float: left;
+}
+._lsn {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+._m0 {
+    margin: 0;
+}
+._p0 {
+    padding: 0;
+}
+.long-score {
+    width: 16px;
+    float: left;
+    margin-right: 2px;
+    border-bottom: solid 1px;
+    line-height: 19px;
+}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+body {
+    background-color: #f5f5f5;
+    font-family: 'Roboto Mono', monospace;
+    color: #000;
+}
+main {
+    width: 1020px;
+    margin: 100px auto;
+}
+.wrapper {
+    width: 100%;
+    float: left;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    background-color: #fff;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+header {
+    height: 450px;
+    float: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+header .name-job {
+    text-align: center;
+    color: #fff;
+}
+header .name-job {
+    margin-top: 60px;
+    text-align: center;
+    color: #fff;
+}
+header .name-job h1 {
+    margin: 0 0 12px;
+    font-weight: 700;
+    font-size: 54px;
+    line-height: 62px;
+}
+header .name-job h3 {
+    margin: 0;
+    font-size: 28px;
+    color: #f2e62c;
+    text-transform: uppercase;
+}
+header .avatar-border {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    padding: 8px;
+    left: 50%;
+    margin-left: -80px;
+    margin-top: 60px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    background-color: #fff;
+}
+header .avatar-border .avatar {
+    width: 100%;
+    height: 100%;
+    float: left;
+    left: 50%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+.main-container {
+    padding: 0 30px;
+    margin-top: 70px;
+}
+.main-container .left,
+.main-container .right {
+    width: 50%;
+    float: left;
+}
+.main-container .left {
+    padding-right: 10px;
+}
+.main-container .right {
+    padding-left: 10px;
+}
+.content-wrap {
+    margin-bottom: 40px;
+}
+.content-wrap.last {
+    margin-top: 40px;
+}
+.content-wrap:last-child {
+    margin-bottom: 0;
+}
+.content-wrap .title {
+    font-size: 26px;
+    color: #333;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 70px;
+}
+.content-wrap .content {
+    margin-top: 30px;
+    font-size: 17px;
+    line-height: 25px;
+    color: #333;
+}
+.content-wrap .title i {
+    width: 70px;
+    height: 70px;
+    float: left;
+    line-height: 70px;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.content-wrap .title b {
+    float: left;
+    margin-left: 20px;
+}
+.pointer-list>li {
+    width: 100%;
+    float: left;
+    position: relative;
+    padding-left: 95px;
+    margin-bottom: 40px;
+}
+.pointer-list>li:last-child {
+    margin-bottom: 0;
+}
+.pointer-list>li>.line {
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    left: 35px;
+    background-color: #333;
+}
+.pointer-list>li>.line>i {
+    width: 13px;
+    height: 13px;
+    position: absolute;
+    margin-left: -6px;
+    background-color: #333;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+.time-line>li {
+    margin-bottom: 40px;
+}
+.time-line>li:last-child {
+    margin-bottom: 0;
+}
+.time-line>li>i,
+.time-line>li>h4,
+.time-line>li>span,
+.time-line>li>div {
+    width: 100%;
+    float: left;
+}
+.time-line>li>i {
+    color: #555;
+}
+.time-line>li>h4 {
+    margin: 10px 0;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.time-line>li>span {
+    margin-bottom: 8px;
+    color: #d6c90b;
+}
+.skill-list li {
+    width: 100%;
+    float: left;
+    padding-left: 0;
+    margin-bottom: 23px;
+}
+.skill-list li span,
+.skill-list li b {
+    width: 100%;
+    float: left;
+    color: #333;
+}
+.skill-list li b {
+    position: relative;
+    height: 5px;
+    background-color: #ddd;
+}
+.skill-list li b i {
+    position: absolute;
+    height: 5px;
+    background-color: #d6c90b;
+}
+
+.skill-list li b i.rate-1 {width: 20%;}
+.skill-list li b i.rate-2 {width: 40%;}
+.skill-list li b i.rate-3 {width: 60%;}
+.skill-list li b i.rate-4 {width: 80%;}
+.skill-list li b i.rate-5 {width: 100%;}
+
+.contact-list span {
+    margin-bottom: 5px;
+}
+.contact-list span i {
+    width: 20px;
+}
+@media screen and (max-width: 1024px) {
+    main {
+        width: 100%;
+        float: left;
+        margin: 0;
+    }
+    .wrapper {
+        margin-bottom: 0;
+    }
+}
+@media screen and (max-width: 780px) {
+    .main-container .left,
+    .main-container .right {
+        width: 100%;
+        padding: 0;
+    }
+    .main-container .right {
+        margin-top: 40px;
+    }
+}
+@media screen and (max-width: 680px) {
+    .main-container {
+        padding: 0 20px;
+        margin-top: 60px;
+    }
+}
+@media screen and (max-width: 480px) { 
+    header {
+        height: 400px;
+    }
+    header .name-job h1 {
+        margin: 0 0 5px;
+        font-size: 40px;
+        line-height: 60px;
+    }
+    header .name-job h3 {
+        font-size: 20px;
+    }
+    header .avatar {
+        width: 120px;
+        height: 120px;
+        padding: 5px;
+        margin-left: -60px;
+    }
+    .main-container {
+        padding: 0 15px;
+        margin-top: 50px;
+    }
+    .content-wrap .title {
+        font-size: 20px;
+        line-height: 60px;
+    }
+    .content-wrap .title i {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+    }
+    .content-wrap .title b {
+        margin-left: 15px;
+    }
+    .pointer-list>li {
+        padding-left: 75px;
+    }
+    .pointer-list>li>.line {
+        left: 30px;
+    }
+    .time-line>li>h4 {
+        font-size: 19px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .pointer-list>li {
+        padding-left: 0;
+    }
+    .pointer-list>li>.line {
+        display: none;
+    }
+}

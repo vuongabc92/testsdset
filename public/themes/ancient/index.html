@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
+<link rel="stylesheet" href="{{ ASSET }}/css/app.css">
+<link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+</head>
+
+<body>
+    <main>
+        <div class="wrapper">
+            <header class="_fwfl">
+                <h1>{{FULL_NAME}}</h1>
+                <h3>{{EXPECTED_JOB}}</h3>
+                <ul class="_fwfl _lsn contact-list">
+                    <li>{{STREET}}, {{CITY}}</li>
+                    <li>{{EMAIL}}</li>
+                    <li>{{PHONE_NUMBER}}</li>
+                </ul>
+                <div class="border">
+                    <span></span>
+                </div>
+            </header>
+            <div class="_fwfl body">
+                <div class="left">
+                    <section class="card">
+                        <h3>Education</h3>
+                        <div>
+                            <ul class="_fwfl _lsn time-line">
+                                {% foreach(education) %}
+                                <li>
+                                    <h4>[[SUBJECT]]</h4>
+                                    <i>[[TIME_LETTER]]</i>
+                                    <span>[[QUALIFICATION]]</span>
+                                    <div>[[COLLEGE_NAME]]</div>
+                                </li>
+                                {% endforeach %}
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="card">
+                        <h3>Skills</h3>
+                        <div>
+                            <ul class="_fwfl _lsn skills">
+                                {% foreach(skills) %}
+                                <li>
+                                    <h4>[[NAME]]</h4>
+                                    <b><i class="rate-[[RATES]]"></i></b>
+                                </li>
+                                {% endforeach %}
+
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+                <div class="right">
+                    <section class="card">
+                        <h3>Experience</h3>
+                        <div>
+                            <ul class="_fwfl _lsn time-line">
+                                {% foreach(experiences) %}
+                                <li>
+                                    <h4>[[POSITION]]</h4>
+                                    <i><i class="fa fa-calendar"></i> [[TIME_LETTER]]</i>
+                                    <span>[[COMPANY_NAME]] | [[LINK_TEXT]]</span>
+                                    <div>[[DESCRIPTION]]</div>
+                                </li>
+                                {% endforeach %}
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <footer class="_fwfl">
+                <div class="personal-logo">
+                    <span>
+                        <i>{{FIRST_NAME_LETTER}}{{LAST_NAME_LETTER}}</i>
+                    </span>
+                </div>
+            </footer>
+        </div>
+    </main>
+</body>
+
+</html>

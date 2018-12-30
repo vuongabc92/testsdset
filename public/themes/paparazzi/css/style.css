@@ -1,0 +1,317 @@
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/RobotoMono/RobotoMono-Regular.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/RobotoMono/RobotoMono-Bold.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.ttf') format('truetype');
+}
+/* Common Classes */
+._fwfl {
+    width: 100%;
+    float: left;
+}
+._fl {
+    float: left;
+}
+._lsn {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+._m0 {
+    margin: 0;
+}
+.long-score {
+    width: 16px;
+    float: left;
+    margin-right: 2px;
+    border-bottom: solid 1px;
+    line-height: 19px;
+}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+body {
+    background-color: #f5f5f5;
+    font-family: 'Roboto Mono', monospace;
+    color: #000;
+}
+main {
+    width: 1020px;
+    margin: 100px auto;
+}
+.wrapper {
+    width: 100%;
+    float: left;
+    margin-bottom: 50px;
+    background-color: #fff;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.header-rotate {
+    margin-top: -5px;
+    background-repeat: no-repeat;
+    height: 50px;
+}
+header {
+    padding: 50px 70px;
+    background-repeat: repeat;
+    color: #f5f5f5;
+    font-size: 17px;
+    line-height: 25px;
+}
+header .avatar {
+    width: 153px;
+    height: 153px;
+    float: left;
+    padding: 3px;
+    background-color: #fff;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+header .avatar img {
+    width: 100%;
+    height: 100%;
+    float: left;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+header h1 {
+    margin: 36px 0 0 200px;
+    font-size: 46px;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    -webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+header h3 {
+    margin: 6px 0 0 200px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    -webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.contact-list li {
+    width: 40%;
+    float: left;
+    display: inline;
+    margin-top: 50px;
+    margin-right: 50px;
+}
+.contact-list li:nth-child(2) {
+    width: 32%;
+}
+.contact-list li:last-child {
+    width: 16%;
+    margin-right: 0;
+}
+.body {
+    padding: 50px 40px;
+}
+.body section {
+    margin-bottom: 50px;
+}
+.body section:last-child {
+    margin-bottom: 0;
+}
+.content-row .title {
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 5px 0;
+    color: #566e8a;
+    font-size: 23px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: solid 2px #566e8a;
+}
+.content-row .content {
+    width: 100%;
+    float: left;
+    font-size: 17px;
+    line-height: 25px;
+    margin-top: 30px;
+    color: #555;
+}
+.history-list li {
+    width: 100%;
+    float: left;
+    margin-bottom: 30px;
+}
+.history-list li:last-child {
+    margin-top: 0;
+}
+.history-list li .left,
+.skill-list li .left {
+    width: 40%;
+    float: left;
+    padding-right: 15px;
+}
+.history-list li .right,
+.skill-list li .right {
+    width: 60%;
+    float: left;
+    padding-left: 15px;
+}
+.history-list li h3 {
+    width: 100%;
+    float: left;
+    margin: 0;
+    font-size: 19px;
+    line-height: 27px;
+    color: #555;
+    text-transform: uppercase;
+}
+.history-list li span {
+    width: 100%;
+    float: left;
+    margin-top: 5px;
+    color: #566e8a;
+    text-transform: uppercase;
+}
+.history-list li div {
+    width: 100%;
+    float: left;
+    margin-top: 5px;
+    color: #777;
+}
+.skill-list li {
+    width: 100%;
+    float: left;
+    margin-bottom: 30px;
+}
+.skill-list li span,
+.skill-list li b {
+    width: 100%;
+    float: left;
+}
+.skill-list li b {
+    position: relative;
+    height: 5px;
+    margin-top: 5px;
+    background-color: #ddd;
+}
+.skill-list li b i {
+    position: absolute;
+    height: 5px;
+    background-color: #566e8a;
+}
+
+.skill-list li b i.rate-1 {width: 20%;}
+.skill-list li b i.rate-2 {width: 40%;}
+.skill-list li b i.rate-3 {width: 60%;}
+.skill-list li b i.rate-4 {width: 80%;}
+.skill-list li b i.rate-5 {width: 100%;}
+
+@media screen and (max-width: 1024px) {
+    main {
+        width: 100%;
+        float: left;
+        margin: 0;
+    }
+    .wrapper {
+        margin-bottom: 0;
+    }
+}
+@media screen and (max-width: 780px) {
+    header {
+        padding: 35px 55px;
+    }
+    header .avatar {
+        width: 120px;
+        height: 120px;
+    }
+    header h1 {
+        margin: 28px 0 0 150px;
+        font-size: 36px;
+    }
+    header h3 {
+        margin: 7px 0 0 150px;
+        font-size: 17px;
+    }
+    .contact-list {
+        padding-left: 150px;
+    }
+    .contact-list li {
+        width: 100% !important;
+        margin-top: 20px;
+        margin-right: 0;
+    }
+    .history-list li .left, .skill-list li .left {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 10px;
+    }
+    .history-list li .right, .skill-list li .right {
+        width: 100%;
+        padding-left: 0;
+    }
+    .history-list li span {
+        margin-top: 0;
+        font-size: 15px;
+    }
+
+}
+@media screen and (max-width: 680px) {
+    header {
+        padding: 30px 15px;
+    }
+    header .avatar {
+        width: 100px;
+        height: 100px;
+    }
+    header h1 {
+        margin: 20px 0 0 120px;
+        font-size: 32px;
+    }
+    header h3 {
+        margin: 7px 0 0 120px;
+    }
+    .contact-list {
+        padding-left: 120px;
+    }
+    .contact-list li {
+        margin-top: 15px;
+    }
+}
+@media screen and (max-width: 480px) { 
+    header .avatar {
+        margin: auto;
+        float: none;
+    }
+    header h1, header h3 {
+        width: 100%;
+        float: left;
+        margin: 0;
+    }
+    header h1 {
+        margin-top: 20px;
+        font-size: 26px;
+    }
+    header h3 {
+        margin-top: 7px;
+    }
+    .contact-list {
+        margin-top: 20px;
+        padding-left: 0;
+    }
+    .body {
+        padding: 30px 15px;
+    }
+}
+@media screen and (max-width: 320px) {
+    
+}

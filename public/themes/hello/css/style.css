@@ -1,0 +1,343 @@
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/lato/Lato-Regular.woff2') format('woff2'),
+    url('../fonts/lato/Lato-Regular.woff') format('woff'),
+    url('../fonts/lato/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/lato/Lato-Bold.woff2') format('woff2'),
+    url('../fonts/lato/Lato-Bold.woff') format('woff'),
+    url('../fonts/lato/Lato-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/lato/Lato-Black.woff2') format('woff2'),
+    url('../fonts/lato/Lato-Black.woff') format('woff'),
+    url('../fonts/lato/Lato-Black.ttf') format('truetype');
+}
+/* Common Classes */
+._fwfl {
+    width: 100%;
+    float: left;
+}
+._fl {
+    float: left;
+}
+._lsn {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+._m0 {
+    margin: 0;
+}
+body {
+    background-color: #efefef;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+main {
+    width: 1020px;
+    margin: 0 auto;
+    
+}
+.wrapper {
+    width: 100%;
+    min-height: 1320px;
+    float: left;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    padding: 0 80px 50px;
+    background-color: #fff;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+header .hello h1 {
+    float: left;
+    margin: 0;
+    padding: 80px 7px 15px;
+    background-color: #C62B27;
+    font-weight: 700;
+    font-size: 52px;
+    color: #eee;
+}
+header .intro {
+    position: relative;
+    margin-top: 70px;
+    height: 200px;
+}
+header .intro h2 {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    font-size: 52px;
+}
+header .intro h2 b {
+    text-decoration: line-through;
+}
+header .intro h2 .my-story {
+    position: absolute;
+    left: 400px;
+    top: 100px;
+    padding: 0 10px 7px 10px;
+    background-color: #C62B27;
+    color: #eee;
+}
+header .contact {
+    margin-top: 20px;
+}
+.contact ul li {
+    width: 100%;
+    float: left;
+    margin-bottom: 3px;
+    font-size: 16px;
+    color: #333;
+}
+.contact ul li b {
+    width: 20%;
+    float: left;
+}
+.contact ul li span {
+    width: 80%;
+    float: left;
+}
+.body {
+    margin-top: 70px;
+}
+.content-container {
+    margin-bottom: 100px;
+}
+.content-container:last-child {
+    margin-bottom: 0;
+}
+.content-container .title {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 700;
+    color: #333;
+}
+.content-container .title .number {
+    float: left;
+    padding: 15px 5px 2px;
+    margin-right: 10px;
+    background-color: #C62B27;
+    color: #fff;
+}
+.content-container .title .text {
+    float: left;
+    padding: 15px 0 0;
+    border-bottom: solid 2px #333;
+}
+.content-container .content {
+    margin-top: 40px;
+}
+.history-row {
+    margin-bottom: 35px;
+}
+.history-row:last-child {
+    margin-bottom: 0;
+}
+.history-left {
+    width: 35%;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+.history-right {
+    width: 65%;
+    float: left;
+}
+.history-title {
+    font-size: 16px;
+}
+.history-title span {
+    color: #555;
+}
+.history-desc {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #333;
+}
+.skills>li {
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+}
+.skills>li:last-child {
+    margin-bottom: 0;
+}
+.skills .skill-rate {
+    width: 50%;
+    float: left;
+}
+.skills .skill-name {
+    width: 50%;
+    float: left;
+    font-size: 17px;
+}
+.skill-rate span {
+    position: relative;
+    width: 80%;
+    height: 5px;
+    float: left;
+    margin-top: 10px;
+    background-color: #ddd;
+}
+.skill-rate b {
+    position: absolute;
+    height: 5px;
+    background-color: #C62B27;
+}
+.skill-rate b.rate-1 {
+    width: 20%;
+}
+.skill-rate b.rate-2 {
+    width: 40%;
+}
+.skill-rate b.rate-3 {
+    width: 50%;
+}
+.skill-rate b.rate-4 {
+    width: 80%;
+}
+.skill-rate b.rate-5 {
+    width: 100%;
+}
+@media screen and (max-width: 1024px) {
+    main {
+        width: 100%;
+        float: left;
+        margin: 0;
+    }
+    .wrapper {
+        min-height: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+@media screen and (max-width: 768px) {
+    .wrapper {
+        padding: 0 50px 50px;
+    }
+    header .intro {
+        margin-top: 60px;
+        height: 180px;
+    }
+    header .hello h1, header .intro h2 {
+        font-size: 42px;
+    }
+    header .hello h1 {
+        padding: 65px 7px 15px;
+    }
+    header .intro h2 .my-story {
+        left: 320px;
+        top: 77px;
+    }
+    .content-container {
+        margin-bottom: 80px;
+    }
+}
+@media screen and (max-width: 680px) {
+    .wrapper {
+        padding: 0 15px 30px;
+    }
+    header .intro {
+        margin-top: 40px;
+        height: 160px;
+    }
+    header .intro h2 .my-story {
+        left: 300px;
+        top: 78px;
+    }
+    .content-container {
+        margin-bottom: 80px;
+    }
+    .contact ul li b {
+        width: 25%;
+    }
+    .contact ul li span {
+        width: 75%;
+        float: left;
+    }
+    .content-container .title {
+        font-size: 20px;
+    }
+    .history-left, .history-right {
+        width: 100%;
+    }
+    .history-left {
+        font-weight: normal;
+    }
+    .content-container {
+        margin-bottom: 55px;
+    }
+    .skills>li {
+        margin-bottom: 15px;
+    }
+    .skills .skill-rate, .skills .skill-name {
+        width: 100%;
+    }
+    .skills .skill-name {
+        font-size: 16px;
+        color: #777;
+    }
+    .skill-rate span {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 480px) { 
+    .wrapper {
+        padding: 0 15px 30px;
+    }
+    header .hello h1, header .intro h2 {
+        font-size: 25px;
+    }
+    header .hello h1 {
+        padding: 40px 7px 15px;
+    }
+    header .intro h2 .my-story {
+        left: 155px;
+        top: 45px;
+    }
+    header .intro {
+        height: 110px;
+    }
+}
+@media screen and (max-width: 320px) {
+    header .hello h1, header .intro h2 {
+        font-size: 22px;
+    }
+    header .hello h1 {
+        padding: 30px 7px 15px;
+    }
+    header .intro h2 .my-story {
+        left: 170px;
+        top: 40px;
+    }
+    header .intro {
+        height: 100px;
+    }
+    .contact ul li b {
+        width: 80px;
+    }
+    .contact ul li {
+        font-size: 15px;
+    }
+    .body {
+        margin-top: 50px;
+    }
+}

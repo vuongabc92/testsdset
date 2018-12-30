@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
+        <link rel="stylesheet" href="{{ ASSET }}/css/app.css">
+        <link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+        <style>
+            header {
+                background-image: url('{{ COVER_1200 }}');
+            }
+            .content-wrap .title i {
+                background-image: url('{{ASSET}}/images/title-icobg.png');
+            }
+        </style>
+    </head>
+
+    <body>
+        <main>
+            <div class="wrapper">
+                <header class="_fwfl">
+                    <div class="_fwfl name-job">
+                        <h1>{{ FIRST_NAME }} {{ LAST_NAME }}</h1>
+                        <h3>{{ EXPECTED_JOB }}</h3>
+                    </div>
+                    <div class="_fwfl">
+                        <div class="avatar-border">
+                            <img class="avatar" src="{{ AVATAR_256 }}" />
+                        </div>
+                    </div>
+                </header>
+                <div class="_fwfl main-container">
+                    <div class="left">
+                        <div class="_fwfl content-wrap">
+                            <span class="_fwfl title">
+                                <i class="fa fa-briefcase"></i> <b>Experience</b>
+                            </span>
+                            <div class="_fwfl content">
+                                <ul class="_fwfl _lsn _p0 _m0 time-line pointer-list">
+                                    {% foreach(experiences) %}
+                                    <li>
+                                        <b class="line"><i></i></b>
+                                        <i>[[TIME_LETTER]]</i>
+                                        <h4>[[POSITION]]</h4>
+                                        <span>[[COMPANY_NAME]] | [[LINK_TEXT]]</span>
+                                        <div>[[DESCRIPTION]]</div>
+                                    </li>
+                                    {% endforeach %}
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="_fwfl content-wrap">
+                            <span class="_fwfl title">
+                                <i class="fa fa-bullhorn"></i> <b>About me</b>
+                            </span>
+                            <div class="_fwfl content">
+                                <ul class="_fwfl _lsn _p0 _m0 pointer-list">
+                                    <li>
+                                        <b class="line"><i></i></b>
+                                        <div>{{ ABOUT_ME }}</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="_fwfl content-wrap">
+                            <span class="_fwfl title">
+                                <i class="fa fa-graduation-cap"></i> <b>Education</b>
+                            </span>
+                            <div class="_fwfl content">
+                                <ul class="_fwfl _lsn _p0 _m0 time-line pointer-list">
+                                    {% foreach(education) %}
+                                    <li>
+                                        <b class="line"><i></i></b>
+                                        <i>[[TIME_LETTER]]</i>
+                                        <h4>[[SUBJECT]]</h4>
+                                        <span>[[QUALIFICATION]]</span>
+                                        <div>[[COLLEGE_NAME]]</div>
+                                    </li>
+                                    {% endforeach %}
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="_fwfl content-wrap">
+                            <span class="_fwfl title">
+                                <i class="fa fa-star"></i> <b>Skills</b>
+                            </span>
+                            <div class="_fwfl content">
+                                <ul class="_fwfl _lsn _p0 _m0 pointer-list">
+                                    <li>
+                                        <b class="line"><i></i></b>
+                                        <ul class="_fwfl _lsn _p0 _m0 time-line skill-list">
+                                            {% foreach(skills) %}
+                                            <li>
+                                                <span>[[NAME]]</span>
+                                                <b><i class="rate-[[RATES]]"></i></b>
+                                            </li>
+                                            {% endforeach %}
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="_fwfl content-wrap">
+                            <span class="_fwfl title">
+                                <i class="fa fa-home"></i> <b>Contact</b>
+                            </span>
+                            <div class="_fwfl content">
+                                <ul class="_fwfl _lsn _p0 _m0 pointer-list">
+                                    <li>
+                                        <b class="line"><i></i></b>
+                                        <div class="_fwfl contact-list">
+                                            <span class="_fwfl"><i class="fa fa-envelope-o"></i> {{ EMAIL }}</span>
+                                            <span class="_fwfl"><i class="fa fa-phone"></i> {{ PHONE_NUMBER }}</span>
+                                            <span class="_fwfl"><i class="fa fa-map-marker"></i>  {{ CITY }}, {{ COUNTRY }}</span>
+                                            {% foreach(socials) %}
+                                            <span class="_fwfl"><i class="fa fa-[[ ICON ]]"></i> [[ LINK ]]</span>
+                                            {% endforeach %}
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="_fwfl content-wrap last">
+                        <span class="_fwfl title">
+                            <i class="fa fa-smile-o"></i> <b>Hobbies</b>
+                        </span>
+                        <div class="_fwfl content">
+                            <ul class="_fwfl _lsn _p0 _m0 pointer-list">
+                                <li>
+                                    <b class="line"><i></i></b>
+                                    <div class="_fwfl">{{HOBBIES}}</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

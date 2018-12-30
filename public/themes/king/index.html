@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
+<link rel="stylesheet" href="{{ ASSET }}/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ ASSET }}/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+</head>
+
+<body>
+    <main>
+        <div class="wrapper">
+            <section class="header">
+                <h1 class="name"><span>{{ FIRST_NAME }} {{ LAST_NAME }}</span></h1>
+                <strong class="job-title">{{ EXPECTED_JOB }}</strong>
+                <div class="avatar-box"><image src="{{ AVATAR_256 }}" /></div>
+            </section>
+            <section class="resume-container">
+                <div class="resume-content">
+                    <div class="resume-left-container">
+                        <div class="resume-left">
+                            <section class="experience">
+                                <h3 class="section-title">Experiences</h3>
+                                
+                                {% foreach(experiences) %}
+                                <div class="time-box">
+                                    <span class="time-period">[[ TIME ]]</span>
+                                    <b class="time-title">[[ COMPANY_NAME ]]</b>
+                                    <i class="time-subtitle">[[ POSITION ]]</i>
+                                    <span class="time-desc">[[ DESCRIPTION ]]</span>
+                                </div>
+                                {% endforeach %}
+                                
+                            </section>
+                            <section class="about">
+                                <h3 class="section-title">About me</h3>
+                                <div class="about-content">
+                                    I'm {{ FIRST_NAME }}, {{ AGE }} years old,<br/>
+                                    I was born {{ BIRTHDAY }} and I'm a hot boy<br/><br/>
+                                    
+                                    {{ ABOUT_ME }}
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="resume-right-container">
+                        <div class="resume-right">
+                            <section class="education">
+                                <h3 class="section-title">Education</h3>
+                                
+                                {% foreach(education) %}
+                                <div class="time-box">
+                                    <span class="time-period">[[ TIME ]]</span>
+                                    <b class="time-title">[[ COLLEGE_NAME ]]</b>
+                                    <i class="time-subtitle">[[ SUBJECT ]] - [[ QUALIFICATION ]]</i>
+                                </div>
+                                {% endforeach %}
+                                
+                            </section>
+                            <section class="skill">
+                                <h3 class="section-title">Skill</h3>
+                                
+                                {% foreach(skills) %}
+                                <div class="skill-line">
+                                    <span class="skill-name">[[ NAME ]]</span>
+                                    <span class="skill-rates skill-rates-[[ RATES ]]"><b></b></span>
+                                </div>
+                                {% endforeach %}
+                                
+                            </section>
+                            <section class="contact">
+                                <h3 class="section-title">Contact me</h3>
+                                <div class="contact-content">
+                                    <span class="contact-row address"><strong>{{ STREET }}, {{ CITY_TYPE }} {{ CITY }}, {{ COUNTRY_CODE }}</strong></span>
+                                    <span class="contact-row"><i class="fa fa-phone"></i>{{ PHONE_NUMBER }}</span>
+                                    <span class="contact-row"><i class="fa fa-envelope-square"></i>{{ EMAIL }}</span>
+                                    <span class="contact-row"><i class="fa fa-link"></i><a href="{{ WEBSITE }}" target="_blank">{{ WEBSITE }}</a><span>
+                                    <ul class="social-list">
+                                    {% foreach(socials) %}
+                                        <li><a href="http://[[ LINK ]]" target="_blank"><i class="fa fa-[[ ICON ]]"></i>[[ LINK ]]</a></li>
+                                    {% endforeach %}
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>

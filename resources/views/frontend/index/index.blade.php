@@ -8,13 +8,15 @@
 @section('body')
 <div class="_fwfl magic-show">
     @if ( ! auth()->check())
-    <div class="page-header-wrap">
-        <header class="page-header" style="background-image: url({{ $page->getBannerImage() }})">
-            <div class="constraint">
-                <h1>{{ $page->title }}</h1>
+        @if($page)
+            <div class="page-header-wrap">
+                <header class="page-header" style="background-image: url({{ $page->getBannerImage() }})">
+                    <div class="constraint">
+                        <h1>{{ $page->title }}</h1>
+                    </div>
+                </header>
             </div>
-        </header>
-    </div>
+        @endif
     @endif
     <div class="_fwfl themes-wrapper">
         <div class="_fwfl themes-inside">

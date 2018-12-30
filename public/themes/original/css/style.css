@@ -1,0 +1,221 @@
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/RobotoMono/RobotoMono-Regular.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/RobotoMono/RobotoMono-Bold.woff2') format('woff2'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.woff') format('woff'),
+    url('../fonts/RobotoMono/RobotoMono-Bold.ttf') format('truetype');
+}
+/* Common Classes */
+._fwfl {
+    width: 100%;
+    float: left;
+}
+._fl {
+    float: left;
+}
+._lsn {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+._m0 {
+    margin: 0;
+}
+.long-score {
+    width: 16px;
+    float: left;
+    margin-right: 2px;
+    border-bottom: solid 1px;
+    line-height: 15px;
+}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+body {
+    background-color: #efefef;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    color: #333;
+}
+main {
+    width: 1020px;
+    margin: 0 auto;
+}
+.wrapper {
+    width: 100%;
+    float: left;
+    padding: 80px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    background-color: #fff;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+header {
+    margin-bottom: 50px;
+}
+header>h1,
+header>h4 {
+    width: 100%;
+    float: left;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+}
+header>h1{
+    text-transform: uppercase;
+    font-size: 60px;
+}
+section.content {
+    width: 100%;
+    float: left;
+    margin-bottom: 30px;
+}
+section.content:last-child {
+    margin-bottom: 0;
+}
+section.content>.left {
+    width: 20%;
+    float: left;
+} 
+section.content>.left h3 {
+    width: 100%;
+    float: left;
+    margin: 0;
+    text-align: right;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 20px;
+} 
+section.content>.right {
+    width: 80%;
+    float: left;
+    padding-left: 70px;
+}
+.time-line>li {
+    width: 100%;
+    float: left;
+    margin-bottom: 30px;
+}
+.time-line>li:last-child {
+    margin-bottom: 0;
+}
+.time-line>li>h4,
+.time-line>li>i,
+.time-line>li>span,
+.time-line>li>div {
+    width: 100%;
+    float: left;
+}
+.time-line>li>h4 {
+    margin: 0 0 10px;
+    text-transform: uppercase;
+}
+.time-line>li>i {
+    margin-bottom: 5px;
+}
+.time-line>li>i>i {
+    font-size: 14px;
+}
+.time-line>li>span {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.skills-list li {
+    width: 100%;
+    float: left;
+    margin-bottom: 15px;
+}
+.skills-list li:last-child {
+    margin-bottom: 0;
+}
+.skills-list li>span {
+    width: 100%;
+    float: left;
+}
+
+.skills-list li>span.skill-rate {
+    position: relative;
+    max-width: 500px;
+    height: 2px;
+    margin-top: 3px;
+    background-color: #999;
+}
+.skills-list li>span>b {
+    position: absolute;
+    height: 2px;
+    background-color: #222;
+}
+.skills-list li .rate-1 {width: 20%;}
+.skills-list li .rate-2 {width: 40%;}
+.skills-list li .rate-3 {width: 60%;}
+.skills-list li .rate-4 {width: 80%;}
+.skills-list li .rate-5 {width: 100%;}
+.contact-list>li {
+    margin-bottom: 7px;
+}
+.contact-list>li:last-child {
+    margin-bottom: 0;
+}
+.contact-list>li>i {
+    width: 15px;
+}
+.contact-fname {
+    text-transform: capitalize;
+}
+@media screen and (max-width: 1024px) {
+    main {
+        width: 100%;
+        float: left;
+    }
+    .wrapper {
+        margin: 0;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        border: none;
+    }
+}
+@media screen and (max-width: 680px) {
+    .wrapper {
+        padding: 50px 30px;
+    }
+    .skills-list li>span.skill-rate {
+        max-width: 100%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .wrapper {
+        padding: 50px 15px;
+    }
+    section.content>.left,
+    section.content>.right {
+        width: 100%;
+        padding-left: 0;
+    }
+    section.content>.right {
+        margin-top: 30px;
+    }
+    section.content>.left h3 {
+        text-align: left;
+        border-bottom: solid 2px #555;
+        padding-bottom: 5px;
+    }
+}

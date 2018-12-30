@@ -35,6 +35,13 @@ class ThemeCompiler extends Compiler {
     protected $themesFolder = 'themes';
 
     /**
+     * Folder name that container all themes
+     *
+     * @var string
+     */
+    protected $commonThemeAssetsFolder = 'common-theme-assets';
+
+    /**
      * Public folder
      * 
      * @var string 
@@ -168,7 +175,7 @@ class ThemeCompiler extends Compiler {
      * @var array 
      */
     protected $variables = [
-        'ASSET',
+        'ASSETS',
         'AVATAR',
         'AVATAR_128',
         'AVATAR_256',
@@ -176,9 +183,10 @@ class ThemeCompiler extends Compiler {
         'AGE',
         'ABOUT_ME',
         'BIRTHDAY',
+        'CITY',
+        'COMMON_ASSETS',
         'COUNTRY',
         'COUNTRY_CODE',
-        'CITY',
         'CITY_TYPE',
         'COVER',
         'COVER_768',
@@ -198,6 +206,7 @@ class ThemeCompiler extends Compiler {
         'LAST_NAME_LETTER',
         'MONTH_OF_BIRTH',
         'MARITAL_STATUS',
+        'PDF_WRAPPER_CLASS',
         'PHONE_NUMBER',
         'STREET',
         'WARD',
@@ -249,22 +258,29 @@ class ThemeCompiler extends Compiler {
      * @return array
      */
     public function getConfig() {
-        return $this->configuration;
-    }
-    
-    /**
-     * Get theme configuration
-     * 
-     * @return array
-     */
-    public function getConfigPdf() {
-        $cog    = $this->configuration;
-        $cog[]  = 'pdf-theme-name:' . $this->themeName;
-        $config = new Config($cog);
+        $config = new Config($this->configuration);
         
-        return $config->getPdfConfig();
+        return $config->getConfig();
     }
-    
+
+    /**
+     * Compile asset path
+     *
+     * @return string
+     */
+    protected function compileAssets() {
+        return asset($this->themesFolder . '/' . $this->getThemeName());
+    }
+
+    /**
+     * Compile asset path
+     *
+     * @return string
+     */
+    protected function compileCommonAssets() {
+        return asset($this->commonThemeAssetsFolder);
+    }
+
     /**
      * Compile string variables
      * 
@@ -330,18 +346,14 @@ class ThemeCompiler extends Compiler {
      * @param type $pregMatch
      */
     protected function compileConfig($pregMatch) {
-        $config    = [];
+        $config    = '';
         $configRaw = isset($pregMatch[2]) ? $pregMatch[2] : '';
         $configTag = isset($pregMatch[1]) ? $pregMatch[1] : '';
-        
+
         if (preg_match('/config/', $configTag)) {
-            preg_replace_callback('/\[\[(.*?)\]\]/s', function($matches) use (&$config) {
-                if (isset($matches[1])) {
-                    $config[] = trim($matches[1]);
-                }
-            }, $configRaw);
+            $config = $configRaw;
         }
-        
+
         $this->configuration = $config;
     }
 
@@ -591,15 +603,6 @@ class ThemeCompiler extends Compiler {
         }
         
         return $content;
-    }
-    
-    /**
-     * Compile asset path
-     * 
-     * @return string 
-     */
-    protected function compileAsset() {
-        return asset($this->themesFolder . '/' . $this->getThemeName());
     }
     
     /**
@@ -929,7 +932,12 @@ class ThemeCompiler extends Compiler {
     protected function compileHobbies() {
         return $this->resume->getHobbies();
     }
-    
+
+
+    protected function compilePdfWrapperClass() {
+        return config('frontend.pdfWrapperClass');
+    }
+
     /**
      * Get day of birth
      * 

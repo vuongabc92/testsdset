@@ -1,0 +1,20 @@
+/*
+    Google font Roboto Mono
+ */
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url("../../fonts/roboto-mono/regular.woff2") format('woff2'),
+    url("../../fonts/roboto-mono/regular.woff") format('woff'),
+    url("../../fonts/roboto-mono/regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: url("../../fonts/roboto-mono/bold.woff2") format('woff2'),
+    url("../../fonts/roboto-mono/bold.woff") format('woff'),
+    url("../../fonts/roboto-mono/bold.ttf") format('truetype');
+}

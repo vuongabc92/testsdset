@@ -18,7 +18,7 @@ Route::group(['middleware' => ['auth:web']], function ($route) {
     $route->post('theme/install', 'SettingsController@install')->name('front_theme_install');
     $route->post('theme/add_new', 'SettingsController@addNewTheme')->name('front_theme_add_new')->middleware('master');
     $route->get('theme/{slug}/preview', 'ResumeController@preview')->name('front_theme_preview');
-    $route->get('theme/{slug}/download/{height?}', 'ResumeController@download')->where('height', '[0-9]+')->name('front_theme_download');
+    $route->get('theme/{slug}/download/{height}', 'ResumeController@download')->where('height', '[0-9]+')->name('front_theme_download');
 });
 
 // Authentication Routes.
@@ -44,7 +44,7 @@ Route::get('/developer', 'IndexController@developer')->name('front_developer');
 Route::get('/privacy-policy', 'IndexController@privacyPolicy')->name('front_privacy_policy');
 Route::get('/terms-and-conditions', 'IndexController@termsAndConditions')->name('front_terms_conditions');
 
-Route::get('themes', 'SettingsController@lazyLoadTheme')->name('front_themes_lazy');
+Route::get('more-themes', 'SettingsController@lazyLoadTheme')->name('front_themes_lazy');
 Route::get('theme/{slug}/details', 'SettingsController@themeDetails')->name('front_theme_details');
 
 Route::get('i/{slug?}', 'ResumeController@index')->name('front_cv');

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
+        <link rel="stylesheet" href="{{ ASSET }}/css/app.css">
+        <link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+    </head>
+
+    <body>
+        <main>
+            <div class="wrapper" id="pdfhtmlcontents">
+                <div class="left">
+                    <section class="_fwfl avatar-name-job">
+                        <img src="{{AVATAR_128}}" />
+                        <div class="_fwfl full-name">
+                            <h1>{{FIRST_NAME}}</h1>
+                            <h1><b>{{LAST_NAME}}</b></h1>
+                        </div>
+                        <h4>{{EXPECTED_JOB}}</h4>
+                    </section>
+                    <div class="_fwfl left-container">
+                        <section class="_fwfl content-box">
+                            <h3 class="_fwfl title"><b><i class="fa fa-user-o"></i></b> <span>About Me</span></h3>
+                            <div class="_fwfl content">{{ABOUT_ME}}</div>
+                        </section>
+                        <section class="_fwfl content-box content-skill">
+                            <h3 class="_fwfl title"><b><i class="fa fa-star-o"></i></b> <span>My Skills</span></h3>
+                            <div class="_fwfl content">
+                                <ul class="_fwfl _lsn skill-list">
+                                    {% foreach(skills) %}
+                                    <li>
+                                        <span>[[ NAME ]]</span>
+                                        <b><i class="rate-[[ RATES ]]"></i></b>
+                                    </li>
+                                    {% endforeach %}
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="_fwfl content-box contact-desktop">
+                            <h3 class="_fwfl title"><b><i class="fa fa-address-book"></i></b> <span>Contact Me</span></h3>
+                            <div class="_fwfl content">
+                                <ul class="_fwfl _lsn contact-list">
+                                    <li><span class="long-score">&nbsp;</span>{{ STREET }}, {{ CITY }}</li>
+                                    <li><span class="long-score">&nbsp;</span>{{EMAIL}}</li>
+                                    <li><span class="long-score">&nbsp;</span>{{PHONE_NUMBER}}</li>
+                                    <li><span class="long-score">&nbsp;</span>{{BIRTHDAY}}</li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="right">
+                    <section class="_fwfl content-box">
+                        <h3 class="_fwfl title"><b><i class="fa fa-suitcase"></i></b> <span>Experience</span></h3>
+                        <div class="_fwfl content">
+                            <ul class="_fwfl _lsn history-list">
+                                {% foreach(experiences) %}
+                                <li>
+                                    <h3>[[POSITION]]</h3>
+                                    <h5>
+                                        <span><i class="fa fa-map-marker"></i> [[COMPANY_NAME]]</span>
+                                        <span><i class="fa fa-calendar"></i> [[TIME_LETTER]]</span>
+                                    </h5>
+                                    <div>[[DESCRIPTION]]</div>
+                                </li>
+                                {% endforeach %}
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="_fwfl content-box">
+                        <h3 class="_fwfl title"><b><i class="fa fa-trophy"></i></b> <span>Education</span></h3>
+                        <div class="_fwfl content">
+                            <ul class="_fwfl _lsn history-list">
+                                {% foreach(education) %}
+                                <li>
+                                    <div class="_fwfl history-header">
+                                        <h3>[[COLLEGE_NAME]]</h3>
+                                        <h5>
+                                            <span><i class="fa fa-map-marker"></i> [[SUBJECT]]</span>
+                                            <span><i class="fa fa-calendar"></i> [[TIME_LETTER]]</span>
+                                        </h5>
+                                    </div>
+                                    <div class="_fwfl history-desc">[[QUALIFICATION]]</div>
+                                </li>
+                                {% endforeach %}
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="_fwfl content-box contact-mobile">
+                        <h3 class="_fwfl title"><b><i class="fa fa-address-book"></i></b> <span>Contact Me</span></h3>
+                        <div class="_fwfl content">
+                            <ul class="_fwfl _lsn contact-list">
+                                <li><span class="long-score">&nbsp;</span>{{ STREET }}, {{ CITY }}</li>
+                                <li><span class="long-score">&nbsp;</span>{{EMAIL}}</li>
+                                <li><span class="long-score">&nbsp;</span>{{PHONE_NUMBER}}</li>
+                                <li><span class="long-score">&nbsp;</span>{{BIRTHDAY}}</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="_fwfl content-box">
+                        <h3 class="_fwfl title"><b><i class="fa fa-music"></i></b> <span>Interest</span></h3>
+                        <div class="_fwfl content">{{HOBBIES}}</div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

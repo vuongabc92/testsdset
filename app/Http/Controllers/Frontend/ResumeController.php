@@ -8,7 +8,6 @@ use App\Helpers\Theme\Resume;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Response;
 use App\Helpers\Theme\ThemeCompiler;
-use Illuminate\Filesystem\Filesystem;
 use mikehaertl\wkhtmlto\Pdf;
 use mikehaertl\pdftk\Pdf as Pdftk;
 
@@ -78,105 +77,111 @@ class ResumeController extends Controller {
         $injectHtml = view('frontend.resume.html-injection', ['slug' => $slug])->render();
         $response   = str_replace('</body>', $injectHtml . '</body>', $contents );
 
-        return new Response($response);
+        return response($response);
     }
 
     /**
      * Download CV as PDF
      *
      * @param $slug
+     * @param $height
      * @throws NotFoundHttpException
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
      */
-    public function download($slug, $height = null) {
+    public function download($slug, $height) {
 
-        if (null === Theme::where('slug', $slug)->first()) {
+        if (null === Theme::where('slug', $slug)->first() || ! $height) {
             abort(404);
         }
 
-        $resume       = $this->generateResumeData(user_id());
-        $compiler     = new ThemeCompiler($resume, $slug);
-        $contents     = $compiler->compileDownload();
-        $pdfConfigs   = $compiler->getConfigPdf();
-        $pdfMaxHeight = config('frontend.pdfMaxHeight');
+        $resume            = $this->generateResumeData(user_id());
+        $compiler          = new ThemeCompiler($resume, $slug);
+        $contents          = $compiler->compileDownload();
+        $pdfMaxHeight      = config('frontend.pdfMaxHeight');
+        $pdfDownloadPrefix = config('frontend.pdfDownloadPrefix');
 
-        if ($height && $height <= $pdfMaxHeight) {
-            $pdfDefaultCog = config('frontend.wkhtmltopdf');
-            $pdf           = new Pdf($pdfDefaultCog);
-            $fileName      = 'cv_' . $resume->getFirstName() . $resume->getLastName() . '_' . md5($resume->getEmail()) . '.pdf';
-
-            $pdf->addPage($contents);
-
-            if ( ! $pdf->send($fileName)) {
-                abort(404);
-            }
-
+        //A pdf's max height is 1320px if the current html page's height is shorter or
+        //equal max height => download pdf with default wkhtmltopdf config.
+        if ($height <= $pdfMaxHeight) {
+            $this->_wkhtmltopdfDownload($contents);
             exit();
         }
 
-        if (isset($pdfConfigs['marginEachPage']) && $pdfConfigs) {
-            unset($pdfConfigs['marginEachPage']);
+        //Calculate pdf's page number.
+        $pageNumbers   = ($height%$pdfMaxHeight === 0) ? $height/$pdfMaxHeight : ((int)($height/$pdfMaxHeight)) + 1;
+        $resumeConfigs = $compiler->getConfig();
 
-            if (count($pdfConfigs)) {
-                $tmpFiles     = [];
-                $mergeConfigs = [];
-                $alphabet     = 'ABCDEFGHJKMNPQRSTUVWXYZ';
-                $pageNumbers  = 0;
-                $metadata     = null;
+        // Config for wkhtmltopdf
+        if (isset($resumeConfigs['pdf']) && count($resumeConfigs['pdf'])) {
+            $pdfConfigs = $resumeConfigs['pdf'];
 
-                foreach ($pdfConfigs as $k => $one) {
-                    $tmpPath     = config('frontend.tmpFolder');
-                    $tmpFileName = generate_filename($tmpPath, 'pdf', ['prefix' => 'tmppdfcv_' . $resume->getFirstName() . $resume->getLastName() . '_']);
-                    $wkhtmltopdf = new Pdf($one['config']);
+            //There is a config for wkhtmltopdf that is different with the default config
+            //and used for all pages.
+            if (count($pdfConfigs) === 1) {
+                $this->_wkhtmltopdfDownload($contents, array_pop($pdfConfigs));
+                exit();
+            }
 
-                    $wkhtmltopdf->addPage($contents);
+            foreach ($pdfConfigs as $k => $one) {
+                $tmpPath     = config('frontend.tmpFolder');
+                $wkhtmltopdf = new Pdf($one);
+                $alphabet    = 'ABCDEFGHJKMNPQRSTUVWXYZ';
+                $tmpFileName = generate_filename($tmpPath, 'pdf', ['prefix' => $pdfDownloadPrefix . '-' . $alphabet[$k] . '-']);
 
-                    if ( ! $wkhtmltopdf->saveAs($tmpPath . '/' . $tmpFileName)) {
-                        abort(404);
-                    }
+                $wkhtmltopdf->addPage($contents);
 
-                    if (is_null($metadata)) {
-                        $metadata    = $this->_getPdfMetadata($tmpPath . '/' . $tmpFileName);
-                        $pageNumbers = isset($metadata['NumberOfPages']) ? $metadata['NumberOfPages'] : 0;
-                    }
-
-                    if ($pageNumbers && $pageNumbers < 2) {
-                        $this->_downloadPdf($tmpFileName, $tmpPath . '/' . $tmpFileName);
-                    }
-
-                    $mergeConfigs[$alphabet[$k]] = $tmpPath . '/' . $tmpFileName;
-                    $tmpFiles[$alphabet[$k]]     = ['page' => $one['page']];
+                if ( ! $wkhtmltopdf->saveAs($tmpPath . '/' . $tmpFileName)) {
+                    abort(404);
                 }
 
-                if (count($mergeConfigs)) {
-                    $pdftk          = new Pdftk($mergeConfigs);
-                    $mergedFileName = 'cv_' . $resume->getFirstName() . $resume->getLastName() . '_' . md5($resume->getEmail()) . '.pdf';
-                    $mergedFilePath = $tmpPath . '/' . $mergedFileName;
+                $mergeConfigs[$alphabet[$k]] = $tmpPath . '/' . $tmpFileName;
+                $tmpFiles[$alphabet[$k]]     = ['page' => $k + 1];
+            }
 
-                    foreach($tmpFiles as $alias => $file) {
-                        if($file['page'] <= $pageNumbers) {
-                            $pdftk->shuffle($file['page'], null, $alias);
-                        }
+            if (count($mergeConfigs)) {
+                $pdftk          = new Pdftk($mergeConfigs);
+                $mergedFileName = $pdfDownloadPrefix . random_string(16, 'lud'). '.pdf';
+                $mergedFilePath = $tmpPath . '/' . $mergedFileName;
+
+                foreach($tmpFiles as $alias => $file) {
+                    if($file['page'] <= $pageNumbers) {
+                        $pdftk->shuffle($file['page'], null, $alias);
                     }
-
-                    $pdftk->saveAs($mergedFilePath);
-
-                    delete_file($mergeConfigs);
-
-                    $this->_downloadPdf($mergedFileName, $mergedFilePath);
                 }
 
+                $pdftk->saveAs($mergedFilePath);
+
+                delete_file($mergeConfigs);
+
+                $this->_downloadPdf($mergedFileName, $mergedFilePath);
             }
 
         } else {
-            $pdf      = new Pdf($pdfConfigs);
-            $fileName = 'cv_' . $resume->getFirstName() . $resume->getLastName() . '_' . md5($resume->getEmail()) . '.pdf';
-            $pdf->addPage($contents);
-            if ( ! $pdf->send($fileName)) {
-                abort(404);
-            }
-
+            $this->_wkhtmltopdfDownload($contents);
             exit();
+        }
+    }
+
+    /**
+     * Wkhtmltopdf download
+     *
+     * @param string $html Html string to convert to pdf
+     * @param array $wkhtmltopdfConfig config
+     * @throws NotFoundHttpException
+     * @throws \Symfony\Component\HttpKernel\Exception\HttpException
+     *
+     * @return void
+     */
+    protected function _wkhtmltopdfDownload($html, $wkhtmltopdfConfig = array()) {
+        $pdfDownloadPrefix = (count($wkhtmltopdfConfig)) ? $wkhtmltopdfConfig : config('frontend.pdfDownloadPrefix');
+        $pdfDefaultConfig  = config('frontend.wkhtmltopdf');
+        $pdf               = new Pdf($pdfDefaultConfig);
+        $fileName          = $pdfDownloadPrefix . random_string(12, 'lud') . '.pdf';
+
+        $pdf->addPage($html);
+
+        if ( ! $pdf->send($fileName)) {
+            abort(404);
         }
     }
 
@@ -227,7 +232,7 @@ class ResumeController extends Controller {
         // Pdf's metadata is a string that contains new line \n
         $pdftkCheckPage = new Pdftk($pdfFile);
         $metadataRaw    = nl2br($pdftkCheckPage->getData()); //So replate new line with <br>
-        $metadataRaw    = trim(preg_replace('/\s+/', ' ', $metadataRaw)); // Then remove  other new lines \n
+        $metadataRaw    = trim(preg_replace('/\s+/', ' ', $metadataRaw)); // Then remove other new lines \n
         $metadataRaw    = explode('<br />', $metadataRaw);
         $metadata       = [];
 
@@ -252,3 +257,67 @@ class ResumeController extends Controller {
         return readfile($filePath);  //this is necessary in order to get it to actually download the file, otherwise it will be 0Kb
     }
 }
+
+//if (isset($pdfConfigs['marginEachPage']) && $pdfConfigs) {
+//    unset($pdfConfigs['marginEachPage']);
+//
+//    if (count($pdfConfigs)) {
+//        $tmpFiles     = [];
+//        $mergeConfigs = [];
+//        $alphabet     = 'ABCDEFGHJKMNPQRSTUVWXYZ';
+//        $pageNumbers  = 0;
+//        $metadata     = null;
+//
+//        foreach ($pdfConfigs as $k => $one) {
+//            $tmpPath     = config('frontend.tmpFolder');
+//            $tmpFileName = generate_filename($tmpPath, 'pdf', ['prefix' => 'tmppdfcv_' . $resume->getFirstName() . $resume->getLastName() . '_']);
+//            $wkhtmltopdf = new Pdf($one['config']);
+//
+//            $wkhtmltopdf->addPage($contents);
+//
+//            if ( ! $wkhtmltopdf->saveAs($tmpPath . '/' . $tmpFileName)) {
+//                abort(404);
+//            }
+//
+//            if (is_null($metadata)) {
+//                $metadata    = $this->_getPdfMetadata($tmpPath . '/' . $tmpFileName);
+//                $pageNumbers = isset($metadata['NumberOfPages']) ? $metadata['NumberOfPages'] : 0;
+//            }
+//
+//            if ($pageNumbers && $pageNumbers < 2) {
+//                $this->_downloadPdf($tmpFileName, $tmpPath . '/' . $tmpFileName);
+//            }
+//
+//            $mergeConfigs[$alphabet[$k]] = $tmpPath . '/' . $tmpFileName;
+//            $tmpFiles[$alphabet[$k]]     = ['page' => $one['page']];
+//        }
+//
+//        if (count($mergeConfigs)) {
+//            $pdftk          = new Pdftk($mergeConfigs);
+//            $mergedFileName = 'cv_' . $resume->getFirstName() . $resume->getLastName() . '_' . md5($resume->getEmail()) . '.pdf';
+//            $mergedFilePath = $tmpPath . '/' . $mergedFileName;
+//
+//            foreach($tmpFiles as $alias => $file) {
+//                if($file['page'] <= $pageNumbers) {
+//                    $pdftk->shuffle($file['page'], null, $alias);
+//                }
+//            }
+//
+//            $pdftk->saveAs($mergedFilePath);
+//
+//            delete_file($mergeConfigs);
+//
+//            $this->_downloadPdf($mergedFileName, $mergedFilePath);
+//        }
+//    }
+//
+//} else {
+//    $pdf      = new Pdf($pdfConfigs);
+//    $fileName = 'cv_' . $resume->getFirstName() . $resume->getLastName() . '_' . md5($resume->getEmail()) . '.pdf';
+//    $pdf->addPage($contents);
+//    if ( ! $pdf->send($fileName)) {
+//        abort(404);
+//    }
+//
+//    exit();
+//}

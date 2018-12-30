@@ -1,0 +1,15 @@
+body {
+    background-color: #fff;
+}
+main {
+    margin: 0 auto;
+    min-height: 1415px;
+}
+.wrapper {
+    min-height: 1415px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    margin-bottom: 0;
+}
