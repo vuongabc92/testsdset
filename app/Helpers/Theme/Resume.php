@@ -159,6 +159,13 @@ class Resume {
     protected $hobbies;
 
     /**
+     * Download status yes/no
+     *
+     * @var bool
+     */
+    protected $download;
+
+    /**
      * Get avatar images 
      *
      * @return string
@@ -554,4 +561,21 @@ class Resume {
         $this->hobbies = $hobbies;
     }
 
+    /**
+     * Set download status
+     *
+     * @param $status
+     */
+    public function setDownload($status) {
+        $this->download = $status;
+    }
+
+    /**
+     * Get download status
+     *
+     * @return bool
+     */
+    public function getDownload() {
+        return $this->download;
+    }
 }

@@ -1,20 +1,3 @@
-@font-face {
-    font-family: 'Roboto Mono';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/RobotoMono/RobotoMono-Regular.woff2') format('woff2'),
-    url('../fonts/RobotoMono/RobotoMono-Regular.woff') format('woff'),
-    url('../fonts/RobotoMono/RobotoMono-Regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto Mono';
-    font-style: normal;
-    font-weight: 700;
-    src: url('../fonts/RobotoMono/RobotoMono-Bold.woff2') format('woff2'),
-    url('../fonts/RobotoMono/RobotoMono-Bold.woff') format('woff'),
-    url('../fonts/RobotoMono/RobotoMono-Bold.ttf') format('truetype');
-}
 /* Common Classes */
 ._fwfl {
     width: 100%;
@@ -91,7 +74,6 @@ main {
 }
 .name-job-address h1 {
     margin: 0;
-    padding-top: 5px;
     color: #333;
     font-size: 34px;
     text-transform: uppercase;
@@ -101,6 +83,7 @@ main {
     margin: 10px 0 0 0;
     font-size: 20px;
     color: #cc506c;
+    text-transform: capitalize;
 }
 .name-job-address p {
     color: #777;
@@ -117,8 +100,9 @@ main {
 .content-row .title{
     width: 100%;
     float: left;
-    color: #cc506c;
-    letter-spacing: 2px;
+    color: #cc504c;
+    letter-spacing: 1px;
+    font-size: 24px;
 }
 .content-row .content{
     width: 100%;
@@ -127,6 +111,7 @@ main {
     font-size: 16px;
     line-height: 25px;
     color: #666;
+    text-align: justify;
 }
 .content-row .content.border-left{
     padding-left: 35px;
@@ -144,8 +129,8 @@ main {
     width: 100%;
     float: left;
     margin: 0 0 2px 0;
-    font-size: 20px;
-    color: #222;
+    font-size: 18px;
+    color: #333;
     line-height: 30px;
 }
 .timeline-container .time-point{
@@ -157,6 +142,7 @@ main {
     width: 100%;
     float: left;
     margin-top: 15px;
+    margin-bottom: 0;
 }
 .timeline-container .company-name{
     color: #111;
@@ -175,18 +161,28 @@ main {
     margin: 0;
 }
 .details li{
+    position: relative;
     width: 100%;
     float: left;
-    margin-bottom: 10px;
+    padding-left: 40px;
+    margin-bottom: 15px;
 }
 .details li:last-child {
     margin-bottom: 0;
 }
-.details li i.fa {
-    width: 23px;
-    float: left;
-    margin-right: 10px;
-    line-height: 25px;
+.details li i {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    left: 0;
+    top: 0;
+    line-height: 28px;
+    text-align: center;
+    background-color: #f1879f;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 50%;
+    -weblkit-border-radius: 50%;
 }
 .details li span {
     float: left;
@@ -206,6 +202,7 @@ main {
 .skill-list li h4 {
     width: 100%;
     float: left;
+    font-size: 16px;
 }
 .skill-list li span {
     position: relative;
@@ -252,6 +249,7 @@ main {
 @media screen and (max-width: 768px) {
     .wrapper .left, .wrapper .right {
         width: 100%;
+        min-height: 0;
     }
     .wrapper .left {
         border-right: none;
@@ -312,7 +310,7 @@ main {
     .content-row .content, 
     .content-row .content.border-left {
         padding-left: 0;
-        border-left: none;
+        border-left: none !important;
     }
 }
 

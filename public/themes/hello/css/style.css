@@ -15,15 +15,6 @@
     url('../fonts/lato/Lato-Bold.woff') format('woff'),
     url('../fonts/lato/Lato-Bold.ttf') format('truetype');
 }
-
-@font-face {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 900;
-    src: url('../fonts/lato/Lato-Black.woff2') format('woff2'),
-    url('../fonts/lato/Lato-Black.woff') format('woff'),
-    url('../fonts/lato/Lato-Black.ttf') format('truetype');
-}
 /* Common Classes */
 ._fwfl {
     width: 100%;
@@ -43,6 +34,7 @@
 body {
     background-color: #efefef;
     font-family: 'Lato', sans-serif;
+    font-family: 'Roboto Mono', monospace;
     font-size: 16px;
     letter-spacing: 1px;
 }
@@ -70,8 +62,9 @@ header .hello h1 {
     padding: 80px 7px 15px;
     background-color: #C62B27;
     font-weight: 700;
-    font-size: 52px;
+    font-size: 50px;
     color: #eee;
+    letter-spacing: 0;
 }
 header .intro {
     position: relative;
@@ -83,21 +76,24 @@ header .intro h2 {
     margin: 0;
     padding: 0;
     font-weight: 700;
-    font-size: 52px;
+    font-size: 46px;
 }
 header .intro h2 b {
     text-decoration: line-through;
 }
 header .intro h2 .my-story {
     position: absolute;
-    left: 400px;
-    top: 100px;
-    padding: 0 10px 7px 10px;
+    width: 250px;
+    left: 360px;
+    height: 57px;
+    top: 90px;
+    line-height: 50px;
+    text-align: center;
     background-color: #C62B27;
     color: #eee;
 }
 header .contact {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .contact ul li {
     width: 100%;
@@ -106,9 +102,15 @@ header .contact {
     font-size: 16px;
     color: #333;
 }
+.contact ul li:last-child {
+    margin-bottom: 0;
+}
 .contact ul li b {
     width: 20%;
     float: left;
+}
+.contact ul li i {
+    display: none;
 }
 .contact ul li span {
     width: 80%;
@@ -118,7 +120,7 @@ header .contact {
     margin-top: 70px;
 }
 .content-container {
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
 .content-container:last-child {
     margin-bottom: 0;
@@ -126,7 +128,7 @@ header .contact {
 .content-container .title {
     margin: 0;
     text-transform: uppercase;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 700;
     color: #333;
 }
@@ -171,6 +173,7 @@ header .contact {
     margin-top: 5px;
     font-size: 16px;
     color: #333;
+    text-align: justify;
 }
 .skills>li {
     width: 100%;
@@ -231,7 +234,7 @@ header .contact {
 }
 @media screen and (max-width: 768px) {
     .wrapper {
-        padding: 0 50px 50px;
+        padding: 0 40px 40px;
     }
     header .intro {
         margin-top: 60px;
@@ -244,8 +247,8 @@ header .contact {
         padding: 65px 7px 15px;
     }
     header .intro h2 .my-story {
-        left: 320px;
-        top: 77px;
+        left: 350px;
+        top: 85px;
     }
     .content-container {
         margin-bottom: 80px;
@@ -310,11 +313,45 @@ header .contact {
         padding: 40px 7px 15px;
     }
     header .intro h2 .my-story {
-        left: 155px;
-        top: 45px;
+        width: 150px;
+        height: 36px;
+        left: 196px;
+        top: 50px;
+        line-height: 34px;
     }
     header .intro {
         height: 110px;
+    }
+    .contact ul li {
+        margin-bottom: 10px;
+    }
+    .contact ul li b {
+        display: none;
+        width: 0;
+    }
+    .contact ul li span {
+        width: 100%;
+        position: relative;
+        padding-left: 35px;
+        line-height: 28px;
+    }
+    .contact ul li i {
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        left: 0;
+        top: 0;
+        line-height: 28px;
+        text-align: center;
+        background-color: #c62b27;
+        color: #eee;
+        font-size: 14px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        display: inline-block;
+    }
+    .history-desc {
+        text-align: left;
     }
 }
 @media screen and (max-width: 320px) {

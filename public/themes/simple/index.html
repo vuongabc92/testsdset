@@ -4,14 +4,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
-        <link rel="stylesheet" href="{{ ASSET }}/css/app.css">
-        <link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+        <link rel="stylesheet" href="{{ COMMON_ASSETS }}/css/bootstrap/v.4.2.1/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ COMMON_ASSETS }}/css/fontawesome/v.5.6.3/all.min.css">
+        <link rel="stylesheet" href="{{ COMMON_ASSETS }}/css/font-face/roboto-mono.css">
+        <link rel="stylesheet" href="{{ ASSETS }}/css/style.css">
+        {{ LINK_STYLESHEET_DOWNLOAD }}
     </head>
-
     <body>
         <main>
-            <div class="wrapper" id="pdfhtmlcontents">
-                <div class="left">
+            <div class="wrapper" id="{{ PDF_WRAPPER_CLASS }}">
+                <div class="left" id="left">
                     <section class="header">
                         <div class="avatar">
                             <img src="{{ AVATAR_128 }}" />
@@ -19,7 +21,7 @@
                         <div class="name-job-address">
                             <h1>{{ FIRST_NAME }} {{ LAST_NAME }}</h1>
                             <h3>{{ EXPECTED_JOB }}</h3>
-                            <p><i class="fa fa-map-marker"></i> {{ STREET }}, {{ CITY }}</p>
+                            <p><i class="fas fa-map-marker-alt"></i> {{ STREET }}, {{ CITY }}</p>
                         </div>
                     </section>
                     <section class="content-row">
@@ -52,7 +54,7 @@
                         </div>
                     </section>
                 </div>
-                <div class="right">
+                <div class="right" id="right">
                     <section class="content-row">
                         <h2 class="title">Skills</h2>
                         <div class="content">
@@ -70,12 +72,12 @@
                         <h2 class="title">Details</h2>
                         <div class="content">
                             <ul class="details">
-                                <li><i class="fa fa-calendar"></i><span>{{ BIRTHDAY }}</span></li>
+                                <li><i class="fas fa-calendar-alt"></i><span>{{ BIRTHDAY }}</span></li>
                                 <li><i class="fa fa-envelope"></i><a href="mailto:{{ EMAIL }}">{{ EMAIL }}</a></li>
                                 <li><i class="fa fa-phone"></i><span>{{ PHONE_NUMBER }}</span></li>
-                                <li><i class="fa fa-link"></i><a href="{{ WEBSITE }}">{{ WEBSITE }}</a></li>
+                                <li><i class="fa fa-link"></i><a href="{{ WEBSITE_LINK }}">{{ WEBSITE_NAME }}</a></li>
                                 {% foreach(socials) %}
-                                    <li><i class="fa fa-[[ ICON ]]"></i> <a href="http://[[ LINK ]]" target="_blank">[[ LINK ]]</a></li>
+                                    <li><i class="[[ ICON ]]"></i> <a href="http://[[ LINK ]]" target="_blank">[[ TEXT ]]</a></li>
                                 {% endforeach %}
                             </ul>
                         </div>
@@ -90,6 +92,27 @@
                 </div>
             </div>
         </main>
-    </body>
+        <script>
+            function impretty() {
+                var left   = document.getElementById('left'),
+                    right  = document.getElementById('right'),
+                    leftH  = left.clientHeight,
+                    rightH = right.clientHeight;
 
+                if (leftH > rightH && window.innerWidth > 768) {
+                    right.style.height = leftH + 'px';
+                }
+
+                if (leftH < rightH && window.innerWidth > 768) {
+                    left.style.height = rightH + 'px';
+                }
+            }
+
+            window.addEventListener( 'resize', impretty, false );
+
+            window.onload = function(){
+                impretty();
+            };
+        </script>
+    </body>
 </html>

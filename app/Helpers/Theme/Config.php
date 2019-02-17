@@ -71,12 +71,8 @@ class Config {
      * @param array $rawConfig An array of mixing config from html file
      */
     public function __construct($rawConfig) {
-        $this->wkhtmltopdfDefaultConfig = config('frontend.wkhtmltopdf');
-        $this->rawConfig                = (empty($rawConfig)) ? [] : json_decode($rawConfig, true);
-
-        $this->config = [
-            'pdf' => $this->_getWkhtmltopdfConfig()
-        ];
+        $rawConfig    = trim($rawConfig);
+        $this->config = (empty($rawConfig)) ? [] : json_decode($rawConfig, true);
     }
 
     /**
@@ -99,11 +95,11 @@ class Config {
 
         if (count($this->rawConfig) && isset($this->rawConfig['pdf']) && count($this->rawConfig['pdf'])) {
             $rawPdfConfig     = $this->rawConfig['pdf'];
-            $defaultConfig    = $this->wkhtmltopdfDefaultConfig;
             $pdfConfigPerPage = [];
 
             foreach ($rawPdfConfig as $cogs) {
                 if (count($cogs)) {
+                    $defaultConfig = $this->wkhtmltopdfDefaultConfig;
                     foreach ($cogs as $k => $cog) {
                         // Check config is allowed to use or not.
                         if (in_array($k, self::WKHTMLTOPDF_CONFIG_ALLOW)) {
@@ -118,7 +114,7 @@ class Config {
             return $pdfConfigPerPage;
         }
 
-        return $this->wkhtmltopdfDefaultConfig;
+        return [$this->wkhtmltopdfDefaultConfig];
     }
 }
     

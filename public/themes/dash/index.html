@@ -4,26 +4,29 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{ FIRST_NAME }} {{ LAST_NAME }}</title>
-        <link rel="stylesheet" href="{{ ASSET }}/css/app.css">
-        <link rel="stylesheet" href="{{ ASSET }}/css/style.css">
+        <link rel="stylesheet" href="{{ COMMON_ASSETS }}/css/bootstrap/v.4.2.1/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ COMMON_ASSETS }}/css/fontawesome/v.5.6.3/all.min.css">
+        <link rel="stylesheet" href="{{ COMMON_ASSETS }}/css/font-face/roboto-mono.css">
+        <link rel="stylesheet" href="{{ ASSETS }}/css/style.css">
+        {{ LINK_STYLESHEET_DOWNLOAD }}
     </head>
 
     <body>
         <main>
-            <div class="wrapper" id="pdfhtmlcontents">
-                <div class="left">
+            <div class="wrapper" id="{{ PDF_WRAPPER_CLASS }}">
+                <div class="left" id="left">
                     <section class="_fwfl text-center avatar-name-job">
                         <img src="{{AVATAR_128}}" />
-                        <h1>{{FIRST_NAME}} {{LAST_NAME}}</h1>
-                        <h4>{{EXPECTED_JOB}}</h4>
+                        <h1 class="_fwfl">{{FIRST_NAME}} {{LAST_NAME}}</h1>
+                        <h4 class="_fwfl">{{EXPECTED_JOB}}</h4>
                     </section>
                     <div class="_fwfl left-container">
                         <section class="_fwfl content-box">
-                            <h3 class="_fwfl title"><b><i class="fa fa-user-o"></i></b> <span>About Me</span></h3>
+                            <h5 class="_fwfl title"><i class="fas fa-user-alt"></i>About Me</h5>
                             <div class="_fwfl content about-me">{{ABOUT_ME}}</div>
                         </section>
                         <section class="_fwfl content-box content-skill">
-                            <h3 class="_fwfl title"><b><i class="fa fa-star-o"></i></b> <span>My Skills</span></h3>
+                            <h5 class="_fwfl title"><i class="fa fa-star"></i>My Skills</h5>
                             <div class="_fwfl content">
                                 <ul class="_fwfl _lsn skill-list">
                                     {% foreach(skills) %}
@@ -36,7 +39,7 @@
                             </div>
                         </section>
                         <section class="_fwfl content-box contact-desktop">
-                            <h3 class="_fwfl title"><b><i class="fa fa-address-book"></i></b> <span>Contact Me</span></h3>
+                            <h5 class="_fwfl title"><i class="fa fa-address-book"></i>Contact Me</h5>
                             <div class="_fwfl content">
                                 <ul class="_fwfl _lsn contact-list">
                                     <li><span class="long-score">&nbsp;</span>{{ BIRTHDAY }}</li>
@@ -48,17 +51,17 @@
                         </section>
                     </div>
                 </div>
-                <div class="right">
+                <div class="right" id="right">
                     <section class="_fwfl content-box">
-                        <h3 class="_fwfl title"><b><i class="fa fa-suitcase"></i></b> <span>Experience</span></h3>
+                        <h5 class="_fwfl title"><i class="fa fa-suitcase"></i>Experience</h5>
                         <div class="_fwfl content">
                             {% foreach(experiences) %}
                             <div class="_fwfl history-row">
                                 <div class="_fwfl history-header">
                                     <h3>[[POSITION]]</h3>
                                     <h5>
-                                        <span><i class="fa fa-map-marker"></i> [[COMPANY_NAME]]</span>
-                                        <span><i class="fa fa-calendar"></i> [[TIME_LETTER]]</span>
+                                        <span><i class="fas fa-map-marker-alt"></i> [[COMPANY_NAME]]</span>
+                                        <span><i class="fas fa-calendar-alt"></i> [[TIME_LETTER]]</span>
                                     </h5>
                                 </div>
                                 <div class="_fwfl history-desc">[[DESCRIPTION]]</div>
@@ -67,7 +70,7 @@
                         </div>
                     </section>
                     <section class="_fwfl content-box">
-                        <h3 class="_fwfl title"><b><i class="fa fa-trophy"></i></b> <span>Education</span></h3>
+                        <h5 class="_fwfl title"><i class="fa fa-trophy"></i>Education</h5>
                         <div class="_fwfl content">
                             {% foreach(education) %}
                             <div class="_fwfl history-row">
@@ -75,7 +78,7 @@
                                     <h3>[[COLLEGE_NAME]]</h3>
                                     <h5>
                                         <span><i class="fa fa-graduation-cap"></i> [[SUBJECT]]</span>
-                                        <span><i class="fa fa-calendar"></i> [[TIME_LETTER]]</span>
+                                        <span><i class="fas fa-calendar-alt"></i> [[TIME_LETTER]]</span>
                                     </h5>
                                 </div>
                                 <div class="_fwfl history-desc">[[QUALIFICATION]]</div>
@@ -84,7 +87,7 @@
                         </div>
                     </section>
                     <section class="_fwfl content-box contact-mobile">
-                        <h3 class="_fwfl title"><b><i class="fa fa-address-book"></i></b> <span>Contact Me</span></h3>
+                        <h5 class="_fwfl title"><i class="fa fa-address-book"></i>Contact Me</h5>
                         <div class="_fwfl content">
                             <ul class="_fwfl _lsn contact-list">
                                 <li><span class="long-score">&nbsp;</span>{{ BIRTHDAY }}</li>
@@ -95,12 +98,33 @@
                         </div>
                     </section>
                     <section class="_fwfl content-box">
-                        <h3 class="_fwfl title"><b><i class="fa fa-music"></i></b> <span>Interest</span></h3>
+                        <h5 class="_fwfl title"><i class="fa fa-music"></i>Interest</h5>
                         <div class="_fwfl content">{{HOBBIES}}</div>
                     </section>
                 </div>
             </div>
         </main>
-    </body>
+        <script>
+            function impretty() {
+                var left   = document.getElementById('left'),
+                    right  = document.getElementById('right'),
+                    leftH  = left.clientHeight,
+                    rightH = right.clientHeight;
 
+                if (leftH > rightH && window.innerWidth > 768) {
+                    right.style.height = leftH + 'px';
+                }
+
+                if (leftH < rightH && window.innerWidth > 768) {
+                    left.style.height = rightH + 'px';
+                }
+            }
+
+            window.addEventListener( 'resize', impretty, false );
+
+            window.onload = function(){
+                impretty();
+            };
+        </script>
+    </body>
 </html>

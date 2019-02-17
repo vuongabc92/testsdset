@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="{{ COMMON_ASSETS }}/css/fontawesome/v.5.6.3/all.min.css">
     <link rel="stylesheet" href="{{ COMMON_ASSETS }}/css/font-face/roboto-mono.css">
     <link rel="stylesheet" href="{{ ASSETS }}/css/style.css">
+    {{ LINK_STYLESHEET_DOWNLOAD }}
 </head>
-
+{% config %}
+{"pdf":{"download_faster": true}}
+{% end_config %}
 <body>
 <main>
     <div class="wrapper" id="{{ PDF_WRAPPER_CLASS }}">
@@ -77,9 +80,9 @@
                                 <li><i class="fas fa-map-marker-alt"></i>{{ STREET }}, {{ CITY }}</li>
                                 <li><i class="fa fa-phone"></i>{{ PHONE_NUMBER }}</li>
                                 <li><i class="fa fa-envelope"></i><a href="mailto:{{ EMAIL }}" >{{ EMAIL }}</a></li>
-                                <li><i class="fa fa-link"></i><a href="{{ WEBSITE }}" target="_blank">{{ WEBSITE }}</a></li>
+                                <li><i class="fa fa-link"></i><a href="{{ WEBSITE_LINK }}" target="_blank">{{ WEBSITE_NAME }}</a></li>
                                 {% foreach(socials) %}
-                                <li><a href="http://[[ LINK ]]" target="_blank"><i class="[[ ICON ]]"></i>[[ LINK ]]</a></li>
+                                <li><a href="[[ LINK ]]" target="_blank"><i class="[[ ICON ]]"></i>[[ TEXT ]]</a></li>
                                 {% endforeach %}
                             </ul>
                         </div>

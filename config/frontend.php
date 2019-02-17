@@ -122,9 +122,10 @@ return [
     'lazy_loading' => [
         'per_page' => 5
     ],
-    'pdfMaxHeight'      => 1320,
-    'pdfWrapperClass'   => 'pdfWrapperClass',
-    'pdfDownloadPrefix' => 'AwesomeResume-'
+    'pdfMaxHeightPerPage' => 1320, //pixel
+    'pdfWrapperClass'     => 'pdfWrapperClass',
+    'pdfDownloadPrefix'   => 'octocv-',
+    'pdfDefaultMargin'    => 5 //pixel
 ];
 
 //HOW TO INSTALL WKHTMLTOPDF 0.12.4

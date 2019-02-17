@@ -105,13 +105,13 @@ class SettingsController extends Controller {
             return pong(['publish' => $userProfile->publish]);
         }
     }
-    
+
     /**
      * Upload avatar image.
-     * 
+     *
      * @param Request $request
-     * 
-     * @return AJAX
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
      */
     function uploadAvatar(Request $request) {
         if ($request->isMethod('POST')) {
@@ -156,13 +156,13 @@ class SettingsController extends Controller {
             return file_pong(['message' => _t('oops')], _error(), 403);
         }
     }
-    
+
     /**
      * Upload cover image.
-     * 
+     *
      * @param Request $request
-     * 
-     * @return AJAX
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
      */
     function uploadCover(Request $request) {
         if ($request->isMethod('POST')) {

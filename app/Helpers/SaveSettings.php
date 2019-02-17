@@ -260,11 +260,10 @@ trait SaveSettings {
         
         $socialRaw      = $userProfile->social_network;
         $socials        = is_null($socialRaw) ? [] : unserialize($socialRaw);
-        $url            = parse_url(trim((strpos($socialLink, 'http') === false) ? 'http://' . $socialLink : $socialLink));
-        $host           = isset($url['host'])  ? $url['host']        : '';
-        $path           = isset($url['path'])  ? $url['path']        : '';
-        $query          = isset($url['query']) ? '?' . $url['query'] : '';
-        $socials[$type] = $host . $path . $query;
+        $url            = parse_url(trim($socialLink));
+        $host           = isset($url['host']) ? $url['host'] : '';
+        $path           = isset($url['path']) ? $url['path'] : '';
+        $socials[$type] = $host . $path;
         
         $userProfile->social_network = serialize($socials);
         $userProfile->save();

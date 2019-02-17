@@ -205,7 +205,7 @@ if ( ! function_exists('generate_filename')) :
         $randomStr = random_string($limit, $available_sets = 'lud');
         $fileName  = $prefix . $randomStr . $suffix . '.' . $extension;
 
-        while (check_file($directory . $fileName)) {
+        while (is_file($directory . $fileName)) {
             $fileName = generate_filename($directory, $extension, $options);
         }
 

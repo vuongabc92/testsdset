@@ -14,12 +14,18 @@
 </div>
 <script src="/assets/frontend/js/jquery_v1.11.1.js"></script>
 <script>
-    $(document).ready(function(){
+
+    function themeHeight() {
         var pdfWrapperClass = "{{ config('frontend.pdfWrapperClass') }}",
-            htmlHeight      = $('#' + pdfWrapperClass).height(),
+            htmlHeight      = $('#' + pdfWrapperClass).outerHeight(),
             downloadPdfLink = $('#downloadPdfLink'),
             downloadHref    = downloadPdfLink.attr('href');
 
         downloadPdfLink.attr('href', downloadHref.replace('TMP_HEIGHT', htmlHeight));
+    }
+
+    window.addEventListener( 'resize', themeHeight, false );
+    $(window).load(function() {
+        themeHeight()
     });
 </script>

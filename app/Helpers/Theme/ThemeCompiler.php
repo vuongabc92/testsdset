@@ -28,6 +28,13 @@ class ThemeCompiler extends Compiler {
     protected $download = 'download.html';
 
     /**
+     * The downdload file name.
+     *
+     * @var string
+     */
+    protected $downloadCss = 'css/download.css';
+
+    /**
      * Folder name that container all themes
      *  
      * @var string 
@@ -157,7 +164,8 @@ class ThemeCompiler extends Compiler {
      */
     protected $socialProperties = [
         'LINK',
-        'ICON'
+        'ICON',
+        'TEXT'
     ];
     
     /**
@@ -197,6 +205,7 @@ class ThemeCompiler extends Compiler {
         'DISTRICT_TYPE',
         'EMAIL',
         'EXPECTED_JOB',
+        'LINK_STYLESHEET_DOWNLOAD',
         'FIRST_NAME',
         'FIRST_NAME_LETTER',
         'FULL_NAME',
@@ -211,7 +220,8 @@ class ThemeCompiler extends Compiler {
         'STREET',
         'WARD',
         'WARD_TYPE',
-        'WEBSITE',
+        'WEBSITE_NAME',
+        'WEBSITE_LINK',
         'YEAR_OF_BIRTH',
     ];
     
@@ -227,8 +237,8 @@ class ThemeCompiler extends Compiler {
      * Compile the view at the given path.
      *
      * @param bool $isDownload Compile for download or preview.
-     * 
-     * @return string
+     * @return bool|string
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function compile($isDownload = false) {
         
@@ -242,7 +252,65 @@ class ThemeCompiler extends Compiler {
         
         return $this->compileFunctions($contents);
     }
-    
+
+    /**
+     * Compile string variables
+     *
+     * @param string $contents
+     *
+     * @return string
+     */
+    protected function compileString($contents) {
+        $pattern  = sprintf('/%s\s*(.+?)\s*%s(\r?\n)?/s', $this->contentTags[0], $this->contentTags[1]);
+        $callback = function($matches) {
+
+            if (in_array($matches[1], $this->variables)) {
+                $methodSplit = explode('_', $matches[1]);
+                $method      = 'compile';
+
+
+                foreach ($methodSplit as $item) {
+                    $item    = strtolower($item);
+                    $method .= ucfirst($item);
+                }
+
+                if (method_exists($this, $method)) {
+                    return ($this->$method() !== false && trim($this->$method())) === '' ? $matches[1] : $this->$method();
+                }
+            }
+
+            return $matches[0];
+        };
+
+        return preg_replace_callback($pattern, $callback, $contents);
+    }
+
+    /**
+     * Compile statement in theme such as: foreach, ...
+     *
+     * @param string $contents
+     *
+     * @return string
+     */
+    protected function compileFunctions($contents) {
+        $pattern  = sprintf('/%s(.*?)%s(.*?)%s(.*?)%s/s', $this->functionTags[0], $this->functionTags[1], $this->functionTags[0], $this->functionTags[1]);
+        $callback = function($matches) {
+
+            $method = 'compile';
+            if (preg_match($this->foreachPatterm, trim($matches[1]))) {
+                $method .= 'Foreach';
+            }
+
+            if (preg_match($this->configPatterm, trim($matches[1]))) {
+                $method .= 'Config';
+            }
+
+            return $this->$method($matches);
+        };
+
+        return preg_replace_callback($pattern, $callback, $contents);
+    }
+
     /**
      * Reuse function compile
      * 
@@ -250,111 +318,6 @@ class ThemeCompiler extends Compiler {
      */
     public function compileDownload() {
         return $this->compile($isDownload = true);
-    }
-    
-    /**
-     * Get theme configuration
-     * 
-     * @return array
-     */
-    public function getConfig() {
-        $config = new Config($this->configuration);
-        
-        return $config->getConfig();
-    }
-
-    /**
-     * Compile asset path
-     *
-     * @return string
-     */
-    protected function compileAssets() {
-        return asset($this->themesFolder . '/' . $this->getThemeName());
-    }
-
-    /**
-     * Compile asset path
-     *
-     * @return string
-     */
-    protected function compileCommonAssets() {
-        return asset($this->commonThemeAssetsFolder);
-    }
-
-    /**
-     * Compile string variables
-     * 
-     * @param string $contents
-     * 
-     * @return string
-     */
-    protected function compileString($contents) {
-        $pattern  = sprintf('/%s\s*(.+?)\s*%s(\r?\n)?/s', $this->contentTags[0], $this->contentTags[1]);
-        $callback = function($matches) {
-            
-            if (in_array($matches[1], $this->variables)) {
-                $methodSplit = explode('_', $matches[1]);
-                $method      = 'compile';
-                
-                
-                foreach ($methodSplit as $item) {
-                    $method .= ucfirst($item);
-                }
-                
-                if (method_exists($this, $method)) {
-                    return (trim($this->$method())) === '' ? $matches[1] : $this->$method();
-                }
-            }
-            
-            return $matches[0];
-        };
-        
-        return preg_replace_callback($pattern, $callback, $contents);
-    }
-    
-    /**
-     * Compile statement in theme such as: foreach, ...
-     * 
-     * @param string $contents
-     * 
-     * @return string
-     */
-    protected function compileFunctions($contents) {
-        $pattern  = sprintf('/%s(.*?)%s(.*?)%s(.*?)%s/s', $this->functionTags[0], $this->functionTags[1], $this->functionTags[0], $this->functionTags[1]);
-        $callback = function($matches) {
-            
-            $method = 'compile';
-            if (preg_match($this->foreachPatterm, trim($matches[1]))) {
-                $method .= 'Foreach';
-            }
-            
-            if (preg_match($this->configPatterm, trim($matches[1]))) {
-                $method .= 'Config';
-            }
-            
-            return $this->$method($matches);
-        };
-        
-        return preg_replace_callback($pattern, $callback, $contents);
-    }
-    
-    /**
-     * Compile configuration
-     * 
-     * @param string $pregMatch Config raw
-     * 
-     * @param type $pregMatch
-     */
-    protected function compileConfig($pregMatch) {
-        $config    = '';
-        $configRaw = isset($pregMatch[2]) ? $pregMatch[2] : '';
-        $configTag = isset($pregMatch[1]) ? $pregMatch[1] : '';
-
-        if (preg_match('/config/', $configTag)) {
-            $config = $configRaw;
-        }
-
-        $this->configuration = $config;
     }
 
     /**
@@ -558,8 +521,20 @@ class ThemeCompiler extends Compiler {
                     if (in_array($socialProperty, $this->socialProperties)) {
                         switch($socialProperty) {
                             case 'LINK':
-                                return $one;
+                                $link = trim($one);
+                                $link = str_replace('https://www.', '', $link);
+                                $link = str_replace('http://www.', '', $link);
+                                $link = str_replace('https://', '', $link);
+                                $link = str_replace('http://', '', $link);
 
+                                return "https://$link";
+                                break;
+                            case 'TEXT':
+                                $urlParts = parse_url("https://$one");
+                                $urlPath  = isset($urlParts['path']) ? $urlParts['path'] : "<$k>";
+
+                                return str_replace('/', '', $urlPath);
+                                break;
                             case 'ICON':
                                 if (isset($icons[$k])) {
                                     return $icons[$k];
@@ -604,7 +579,73 @@ class ThemeCompiler extends Compiler {
         
         return $content;
     }
-    
+
+    /**
+     * Get theme configuration
+     *
+     * @return array
+     */
+    public function getConfig() {
+        $config = new Config($this->configuration);
+
+        return $config->getConfig();
+    }
+
+    /**
+     * Compile asset path
+     *
+     * @return string
+     */
+    protected function compileAssets() {
+        return asset($this->themesFolder . '/' . $this->getThemeName());
+    }
+
+    /**
+     * Compile asset path
+     *
+     * @return string
+     */
+    protected function compileLinkStylesheetDownload() {
+        if ($this->resume->getDownload()) {
+            $link = $this->themesFolder . '/' . $this->getThemeName() . '/' . $this->downloadCss;
+            $html = '<link rel="stylesheet" href="%s">';
+
+            if (file_exists($link)) {
+                return sprintf($html, asset($link));
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Compile asset path
+     *
+     * @return string
+     */
+    protected function compileCommonAssets() {
+        return asset($this->commonThemeAssetsFolder);
+    }
+
+    /**
+     * Compile configuration
+     *
+     * @param string $pregMatch Config raw
+     *
+     * @param type $pregMatch
+     */
+    protected function compileConfig($pregMatch) {
+        $config    = '';
+        $configRaw = isset($pregMatch[2]) ? $pregMatch[2] : '';
+        $configTag = isset($pregMatch[1]) ? $pregMatch[1] : '';
+
+        if (preg_match('/config/', $configTag)) {
+            $config = $configRaw;
+        }
+
+        $this->configuration = $config;
+    }
+
     /**
      * Compile first name
      * 
@@ -723,12 +764,33 @@ class ThemeCompiler extends Compiler {
     }
     
     /**
-     * Compile contact website
-     * 
-     * @return string
+     * Compile contact website name
+     *
+     * @return string Without http://www
      */
-    protected function compileWebsite() {
-        return $this->resume->getWebsite();
+    protected function compileWebsiteName() {
+        $website = trim($this->resume->getWebsite());
+        $website = str_replace('https://www.', '', $website);
+        $website = str_replace('http://www.', '', $website);
+        $website = str_replace('https://', '', $website);
+        $website = str_replace('http://', '', $website);
+
+        return $website;
+    }
+
+    /**
+     * Compile contact website link
+     *
+     * @return string Without http://www
+     */
+    protected function compileWebsiteLink() {
+        $website = trim($this->resume->getWebsite());
+
+        if (strpos($website, 'https://') === false && strpos($website, 'http://') === false) {
+            $website = "https://$website";
+        }
+
+        return $website;
     }
     
     /**
